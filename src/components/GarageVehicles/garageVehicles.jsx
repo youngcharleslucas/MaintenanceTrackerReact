@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Card, Button, CardGroup, CardImg } from 'react-bootstrap';
+import { Container, Card, Button, CardGroup, DropdownButton, Dropdown } from 'react-bootstrap';
 import axios from 'axios';
+
 
 const GarageVehicles = (props) => {
     const [vehicles, setVehicles] = useState([]);
@@ -24,10 +25,16 @@ const GarageVehicles = (props) => {
                     <Card style={{width: '18rem'}}>
                         <Card.Img variant="top" src="holder.js/100px180" />
                         <Card.Body>
-                            <Card.Title>{e.make} + {e.model}</Card.Title>
-                            <Card.Text>{e.drive_type}</Card.Text>
-                            <Button variant="primary">More Info</Button>
-                            <Button variant="primary">Maintenance</Button>
+                            <Card.Title>{e.make} {e.model}</Card.Title>
+                            {/* <Card.Text>{e.drive_type}</Card.Text> */}
+                            <DropdownButton id="dropdown-basic-button" title="Options">
+                                <Dropdown.Item href="/">Vehicle Information</Dropdown.Item>
+                                <Dropdown.Item href="/">Update Miles</Dropdown.Item>
+                                <Dropdown.Item href="/">Logs</Dropdown.Item>
+                                <Dropdown.Item href="/">Parts</Dropdown.Item>
+                                <Dropdown.Item href="/">Maintenance</Dropdown.Item>
+                                <Dropdown.Item href="/">Alerts</Dropdown.Item>
+                            </DropdownButton>
                         </Card.Body>
                     </Card>
                 )}
