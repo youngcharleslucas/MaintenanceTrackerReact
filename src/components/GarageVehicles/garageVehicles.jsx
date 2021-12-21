@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Card, CardGroup, DropdownButton, Dropdown } from 'react-bootstrap';
 import axios from 'axios';
+import Maintenance from '../Maintenance/maintenance';
 
 
 const GarageVehicles = (props) => {
@@ -32,7 +33,8 @@ const GarageVehicles = (props) => {
                                 <Dropdown.Item href="/">Update Miles</Dropdown.Item>
                                 <Dropdown.Item href="/">Logs</Dropdown.Item>
                                 <Dropdown.Item href="/">Parts</Dropdown.Item>
-                                <Dropdown.Item href="/">Maintenance</Dropdown.Item>
+                                {console.log(e)}
+                                <Dropdown.Item href={`/maintenance/${e.id}`} >Maintenance</Dropdown.Item>
                                 <Dropdown.Item href="/">Alerts</Dropdown.Item>
                             </DropdownButton>
                         </Card.Body>
