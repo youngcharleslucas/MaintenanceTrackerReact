@@ -29,12 +29,11 @@ const GarageVehicles = (props) => {
                             <Card.Title>{e.make} {e.model}</Card.Title>
                             {/* <Card.Text>{e.drive_type}</Card.Text> */}
                             <DropdownButton id="dropdown-basic-button" title="Options">
-                                <Dropdown.Item href="/">Vehicle Information</Dropdown.Item>
+                                <Dropdown.Item href={`/vehicle_information/${e.id}`}>Vehicle Information</Dropdown.Item>
                                 <Dropdown.Item href="/">Update Miles</Dropdown.Item>
-                                <Dropdown.Item href="/">Logs</Dropdown.Item>
+                                <Dropdown.Item href={`/maintenance_log_list/${e.id}`}>Logs</Dropdown.Item>
                                 <Dropdown.Item href="/">Parts</Dropdown.Item>
-                                {console.log(e)}
-                                <Dropdown.Item href={`/maintenance/${e.id}`} >Maintenance</Dropdown.Item>
+                                <Dropdown.Item href={`/maintenance/${e.vehicle_type}`} >Maintenance</Dropdown.Item>
                                 <Dropdown.Item href="/">Alerts</Dropdown.Item>
                             </DropdownButton>
                         </Card.Body>

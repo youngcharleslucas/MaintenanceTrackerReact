@@ -6,7 +6,8 @@ import { useParams } from 'react-router-dom';
 const Maintenance = (props) => {
     const [vehicle_maintenance, setVehicleMaintenance] = useState([]);
 
-    const {vehicle_id} = useParams();
+    const {vehicle_type} = useParams();
+    // const {vehicle_type} = useParams();
 
     useEffect(() => {
         getVehicleMaintenance()
@@ -21,26 +22,48 @@ const Maintenance = (props) => {
     }
     return (
     
+        // <>
+        //     <h1>Maintenance</h1>
+        //     <h2>{vehicle_type}</h2>
+        //     {console.log(vehicle_maintenance)}
+        //     {console.log(vehicle_type)}
+        //     <CardGroup>
+        //         <Row xs={1} md={1} className="g-4">
+        //             {vehicle_maintenance.filter((e) => e.vehicle_type[0] == vehicle_type).map((filtered) => 
+        //                 <Col>
+        //                     <Card>
+        //                         <Card.Body>
+        //                             <Card.Title>{filtered.maintenance_name}</Card.Title>                        
+        //                         </Card.Body>
+        //                     </Card>
+        //                 </Col>
+        //             )}
+        //         </Row>
+        //     </CardGroup>
+        // </>
         <>
             <h1>Maintenance</h1>
-            <h2>{vehicle_id}</h2>
+            <h2>{vehicle_type}</h2>
             {console.log(vehicle_maintenance)}
-            {console.log(vehicle_id)}
+            {console.log(vehicle_type)}
             <CardGroup>
                 <Row xs={1} md={1} className="g-4">
-                    {vehicle_maintenance.filter((e) => e.vehicle_type[0] == vehicle_id).map((filtered) => 
+                    {vehicle_maintenance.filter((e) => e.vehicle_type[0] == vehicle_type).map((filtered) => 
                         <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Title>{filtered.maintenance_name}</Card.Title>                        
-                                </Card.Body>
-                            </Card>
+                            <Card.Link href={`/maintenance_item/${filtered.id}`}>
+                                <Card>
+                                    <Card.Body>
+                                        <Card.Title>{filtered.maintenance_name}</Card.Title>                        
+                                    </Card.Body>
+                                </Card>
+                            </Card.Link>
                         </Col>
                     )}
                 </Row>
             </CardGroup>
         </>
     );
+        
 }
 
 export default Maintenance;

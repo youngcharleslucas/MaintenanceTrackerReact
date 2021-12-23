@@ -22,7 +22,7 @@ const MaintenanceItem = (props) => {
     return (
     
         <>
-            <h1>Maintenance</h1>
+            <h1>Maintenance Item</h1>
             <h2>{maintenance_id}</h2>
             {console.log(maintenance_item)}
             {console.log(maintenance_id)}
@@ -30,7 +30,7 @@ const MaintenanceItem = (props) => {
                 <Row xs={1} md={1} className="g-4">
                     {maintenance_item.filter((e) => e.id == maintenance_id).map((filtered) => 
                         <Col>
-                            <Card>
+                            <Card >
                                 <Card.Body>
                                     <Card.Title>{filtered.maintenance_name}</Card.Title> 
                                     <Card.Text>{filtered.maintenance_description}</Card.Text>                       
