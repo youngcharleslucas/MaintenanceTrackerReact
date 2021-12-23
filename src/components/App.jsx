@@ -4,6 +4,7 @@ import jwtDecode from "jwt-decode";
 import Home from "./Home/home";
 import Login from "./Login/login"
 import Maintenance from "./Maintenance/maintenance"
+import MaintenanceItem from "./MaintenanceItem/maintenance_item"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 
@@ -33,7 +34,8 @@ class App extends Component {
                     <Routes>
                         <Route path="/" element={<Home user={user} />} />
                         <Route path="/login" element={<Login />} />
-                        <Route path="/maintenance/:vehicle_Id" element={<Maintenance  />} />
+                        <Route path="/maintenance/:vehicle_id" element={<Maintenance  />} />
+                        <Route path="/maintenance/:maintenance_id" element={<MaintenanceItem  />} />
                     </Routes>
                 </Router>
             </div>

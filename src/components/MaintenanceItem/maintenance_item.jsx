@@ -3,36 +3,37 @@ import { Container, Card, CardGroup, Row, Col } from 'react-bootstrap';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
 
-const Maintenance = (props) => {
-    const [vehicle_maintenance, setVehicleMaintenance] = useState([]);
+const MaintenanceItem = (props) => {
+    const [maintenance_item, setMaintenanceItem] = useState([]);
 
-    const {vehicle_id} = useParams();
+    const {maintenance_id} = useParams();
 
     useEffect(() => {
-        getVehicleMaintenance()
+        getMaintenanceItem()
     }, [])
 
-    const getVehicleMaintenance = async () => {
+    const getMaintenanceItem = async () => {
         const jwt = localStorage.getItem('token')
         let response = await axios.get('http://127.0.0.1:8000/api/maintenance_item/all/', {headers: {Authorization: 'Bearer ' + jwt}})
         console.log(response.data)
-        setVehicleMaintenance(response.data)
+        setMaintenanceItem(response.data)
 
     }
     return (
     
         <>
             <h1>Maintenance</h1>
-            <h2>{vehicle_id}</h2>
-            {console.log(vehicle_maintenance)}
-            {console.log(vehicle_id)}
+            <h2>{maintenance_id}</h2>
+            {console.log(maintenance_item)}
+            {console.log(maintenance_id)}
             <CardGroup>
                 <Row xs={1} md={1} className="g-4">
-                    {vehicle_maintenance.filter((e) => e.vehicle_type[0] == vehicle_id).map((filtered) => 
+                    {maintenance_item.filter((e) => e.id == maintenance_id).map((filtered) => 
                         <Col>
                             <Card>
                                 <Card.Body>
-                                    <Card.Title>{filtered.maintenance_name}</Card.Title>                        
+                                    <Card.Title>{filtered.maintenance_name}</Card.Title> 
+                                    <Card.Text>{filtered.maintenance_description}</Card.Text>                       
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -43,4 +44,4 @@ const Maintenance = (props) => {
     );
 }
 
-export default Maintenance;
+export default MaintenanceItem;
