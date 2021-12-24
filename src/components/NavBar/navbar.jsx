@@ -15,11 +15,11 @@ const NavBar = ({user}) => {
                         <Nav className="justify-content-end flex-grow-1 pe-3">
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="login/">Login</Nav.Link>
-                            <Nav.Link href="/">Logout</Nav.Link>
+                            <Nav.Link href="logout/">Logout</Nav.Link>
                             <Nav.Link href="register_user/">Register Account</Nav.Link>
                             <NavDropdown title="Vehicles" id="offcanvasNavbarDropdown">
-                                <NavDropdown.Item href="/">My Vehicle Garage</NavDropdown.Item>
-                                <NavDropdown.Item href="/">Register Vehicle</NavDropdown.Item>
+                                <NavDropdown.Item href="/garage">My Vehicle Garage</NavDropdown.Item>
+                                <NavDropdown.Item href="/vehicle/create">Register Vehicle</NavDropdown.Item>
                                 <NavDropdown.Item href="/">Add Vehicle to Garage</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
