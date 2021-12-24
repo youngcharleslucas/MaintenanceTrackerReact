@@ -9,6 +9,7 @@ import VehicleInfo from './VehicleInfo/vehicleInfo';
 import "bootstrap/dist/css/bootstrap.min.css"
 import MaintenanceLog from './MaintenanceLog/maintenance_log';
 import MaintenanceLogList from './MaintenanceLogList/maintenance_log_list';
+import RegisterUser from './RegisterUser/register_user';
 
 
 class App extends Component {
@@ -37,6 +38,7 @@ class App extends Component {
                     <Routes>
                         <Route path="/" element={<Home user={user} />} />
                         <Route path="/login" element={<Login />} />
+                        <Route path="/register_user" element={<RegisterUser />} />
                         <Route path="/maintenance/:vehicle_type" element={<Maintenance  />} />
                         <Route path="/maintenance_item/:maintenance_id" element={<MaintenanceItem  />} />
                         <Route path="/vehicle_information/:vehicle_id" element={<VehicleInfo  />} />
