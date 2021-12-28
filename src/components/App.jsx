@@ -15,6 +15,7 @@ import NavBar from './NavBar/navbar';
 import GarageVehicles from './GarageVehicles/garageVehicles';
 import Logout from './Logout/logout';
 import AddVehicle from './GarageAddVehicle/garage_add_vehicle';
+import UpdateMiles from './Miles/miles';
 
 
 class App extends Component {
@@ -53,7 +54,8 @@ class App extends Component {
                         <Route path="/maintenance_log/:log_id" element={<MaintenanceLog  />} />
                         <Route path="/vehicle/create" element={<VehicleCreate />} />
                         <Route path="/garage" element={<GarageVehicles user={user}/>} /> 
-                        <Route path="/garage/add_vehicle/:user_id" element={<AddVehicle user={user}/>} />                         
+                        <Route path="/garage/add_vehicle/:user_id" element={<AddVehicle user={user}/>} /> 
+                        <Route path="/update_miles/:vehicle_id" element={<UpdateMiles  />} />                        
                     </Routes>
                 </Router>
             </div>
