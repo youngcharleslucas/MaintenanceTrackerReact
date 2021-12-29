@@ -6,12 +6,6 @@ import { useParams } from 'react-router-dom';
 const UpdateMiles = (props) => {
     const [miles, setUpdateMiles] = useState("");
     const [vehicle, setVehicle] = useState([]);
-    // const [vin, setVIN] = useState ("");
-    // const [make, setMake] = useState ("");
-    // const [model, setModel] = useState ("");
-    // const [trim, setTrim] = useState ("");
-    // const [drive_type, setDriveType] = useState ("");
-    // const [vehicle_type, setVehicleType] = useState ("");
 
     const {vehicle_id} = useParams();
 
@@ -57,33 +51,7 @@ const UpdateMiles = (props) => {
                 </Form.Group>
             )}
             <Button variant="primary" type="submit">Submit</Button>
-
         </Form>
-
-// , setVIN(e.vin), setMake(e.make), setModel(e.model), setTrim(e.trim), setDriveType(e.drive_type), setVehicleType(e.vehicle_type)
-        // <>
-        //     <h1>Vehicle Info</h1>
-        //     <h2>{vehicle_id}</h2>
-        //     {console.log(vehicle_id)}
-        //     <CardGroup>
-        //         <Row xs={1} md={1} className="g-4">
-        //             {miles.filter((e) => e.id == vehicle_id).map((filtered) => 
-        //                 <Col>
-        //                     <Card >
-        //                         <Card.Body>
-        //                             <Card.Title>Vehicle Information</Card.Title> 
-        //                             <Card.Text>Make: {filtered.make} </Card.Text> 
-        //                             <Card.Text>Model: {filtered.model} </Card.Text> 
-        //                             <Card.Text>Trim: {filtered.trim} </Card.Text> 
-        //                             <Card.Text>Drive Type: {filtered.drive_type} </Card.Text>  
-        //                             <Card.Text>VIN: {filtered.vin} </Card.Text>                   
-        //                         </Card.Body>
-        //                     </Card>
-        //                 </Col>
-        //             )}
-        //         </Row>
-        //     </CardGroup>
-        // </>
     );
 }
 
