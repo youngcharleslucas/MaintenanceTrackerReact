@@ -15,7 +15,9 @@ const MaintenanceLog = (props) => {
 
     const getMaintenanceLog = async () => {
         const jwt = localStorage.getItem('token')
+        // Request Maintenance Log
         let response = await axios.get('http://127.0.0.1:8000/api/maintenance_log/all/', {headers: {Authorization: 'Bearer ' + jwt}})
+        // Request Maintenance Item
         let responses = await axios.get(`http://127.0.0.1:8000/api/maintenance_log/vehicle/maintenance_item_log/${log_id}/`, {headers: {Authorization: 'Bearer ' + jwt}})
         console.log(response.data)
         setMaintenanceLog(response.data)

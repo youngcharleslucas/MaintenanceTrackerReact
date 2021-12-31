@@ -32,7 +32,7 @@ const MaintenanceLogList = (props) => {
     const getMaintenanceLogList = async () => {
         const jwt = localStorage.getItem('token')
         // Forgetting the '/' at the end brought this error in browser console === Access to XMLHttpRequest at 'http://127.0.0.1:8000/api/maintenance_log/vehicle/1' from origin 'http://localhost:3000' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: Redirect is not allowed for a preflight request.
-        let response = await axios.get(`http://127.0.0.1:8000/api/maintenance_log/vehicle/${vehicle_id}/`, {headers: {Authorization: 'Bearer ' + jwt}})
+        let response = await axios.get(`http://127.0.0.1:8000/api/maintenance_log/vehicle/log/${vehicle_id}/`, {headers: {Authorization: 'Bearer ' + jwt}})
         console.log(response.data['id'])
         setMaintenanceLogList(response.data)
     };
