@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 const VehicleInfo = (props) => {
     const [vehicle_info, setVehicleInfo] = useState([]);
 
+
     const {vehicle_id} = useParams();
 
     useEffect(() => {

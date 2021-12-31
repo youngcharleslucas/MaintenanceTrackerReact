@@ -5,11 +5,12 @@ import {useParams} from 'react-router-dom';
 
 const AlertsPage = (props) => {
     const [alert_list, setAlertList] = useState([]);
+    const [log_id, setLogId] = useState("");
     const {vehicle_id} = useParams();
 
     useEffect(() => {
         getAlertsList()
-    }, [])
+    }, [log_id])
 
     const getAlertsList = async () => {
         const jwt = localStorage.getItem('token')
@@ -18,44 +19,36 @@ const AlertsPage = (props) => {
         setAlertList(response.data)
     };
 
+    let handleSubmit = async (event, id) => {
+        event.preventDefault();
+        const jwt = localStorage.getItem('token')
+        let response = await axios.get(`http://127.0.0.1:8000/api/maintenance_log/vehicle/maintenance_item_log/complete/${id}/`, {headers: {Authorization: 'Bearer ' + jwt}})
+        console.log(response.data)
+        setLogId(id)
+    };
+
+
     return (
-        // <>
-        // <h1>Alerts</h1>
-        //     <h2>{vehicle_id}</h2>
-        //     <Container>
-        //         <h1>Overdue</h1>                   
-        //             {alert_list.map((e) =>
-        //                 <Row>
-        //                     <Alert variant="danger">
-        //                         <Alert.Heading>{e.maintenance.maintenance_name}</Alert.Heading>
-        //                         <hr />
-        //                         <p className="mb-0">Due: {e.log_miles + e.maintenance.maintenance_miles}</p>
-        //                         <div className="d-flex justify-content-end">
-        //                             <Button variant="danger">Complete</Button>
-        //                         </div>
-        //                     </Alert>               
-        //                 </Row>
-        //             )}
-        //     </Container>
-        // </>
         <>
-            <h1>Alerts</h1>
+        <h1>Alerts</h1>
             <h2>{vehicle_id}</h2>
             <Container>
-                <h1>Overdue</h1>                   
+                <h1>Overdue</h1>  
+                <hr />                 
                     {alert_list.filter((filtered) => filtered.vehicle.miles_current > (filtered.log_miles + filtered.maintenance.maintenance_miles)).map((e) =>
                         <Row>
-                            <Alert variant="danger">
+                            <Alert variant="danger" >
                                 <Alert.Heading>{e.maintenance.maintenance_name}</Alert.Heading>
                                 <hr />
                                 <p className="mb-0">Due: {e.log_miles + e.maintenance.maintenance_miles}</p>
                                 <div className="d-flex justify-content-end">
-                                    <Button variant="danger">Complete</Button>
+                                    <Button variant="dark" onClick={(event) => handleSubmit(event, e.id)} >Complete</Button>
                                 </div>
                             </Alert>               
                         </Row>
                     )}
-                <h1>Approaching</h1>                   
+                <h1>Approaching</h1> 
+                <hr />                    
                     {alert_list.filter((filtered) => (filtered.vehicle.miles_current + 500) > (filtered.log_miles + filtered.maintenance.maintenance_miles) && (filtered.vehicle.miles_current) < (filtered.log_miles + filtered.maintenance.maintenance_miles) ).map((e) =>
                         <Row>
                             <Alert variant="warning">
@@ -63,12 +56,13 @@ const AlertsPage = (props) => {
                                 <hr />
                                 <p className="mb-0">Due: {e.log_miles + e.maintenance.maintenance_miles}</p>
                                 <div className="d-flex justify-content-end">
-                                    <Button variant="warning">Complete</Button>
+                                    <Button variant="dark" onClick={(event) => handleSubmit(event, e.id)} >Complete</Button>
                                 </div>
                             </Alert>               
                         </Row>
                     )}
-                <h1>Scheduled</h1>                   
+                <h1>Scheduled</h1> 
+                <hr />                    
                     {alert_list.filter((filtered) => (filtered.vehicle.miles_current + 500) < (filtered.log_miles + filtered.maintenance.maintenance_miles) ).map((e) =>
                         <Row>
                             <Alert variant="success">
@@ -76,7 +70,7 @@ const AlertsPage = (props) => {
                                 <hr />
                                 <p className="mb-0">Due: {e.log_miles + e.maintenance.maintenance_miles}</p>
                                 <div className="d-flex justify-content-end">
-                                    <Button variant="success">Complete</Button>
+                                    <Button variant="dark" onClick={(event) => handleSubmit(event, e.id)} >Complete</Button>
                                 </div>
                             </Alert>               
                         </Row>
