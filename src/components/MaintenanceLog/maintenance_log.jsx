@@ -5,7 +5,8 @@ import { useParams } from 'react-router-dom';
 
 const MaintenanceLog = (props) => {
     const [log_info, setMaintenanceLog] = useState([]);
-    const [maintenance_info, setMaintenanceItem] = useState([]);
+    // const [maintenance_info, setMaintenanceItem] = useState([]);
+  
 
     const {log_id} = useParams();
 
@@ -13,53 +14,115 @@ const MaintenanceLog = (props) => {
         getMaintenanceLog()
     }, [])
 
+// Drastic change to this since discovering depth=1 for DRF in serializers.py
+    // const getMaintenanceLog = async () => {
+    //     const jwt = localStorage.getItem('token')
+    //     // Request Maintenance Log
+    //     let response = await axios.get('http://127.0.0.1:8000/api/maintenance_log/all/', {headers: {Authorization: 'Bearer ' + jwt}})
+    //     // Request Maintenance Item
+    //     let responses = await axios.get(`http://127.0.0.1:8000/api/maintenance_log/vehicle/maintenance_item_log/${log_id}/`, {headers: {Authorization: 'Bearer ' + jwt}})
+    //     console.log(response.data)
+    //     setMaintenanceLog(response.data)
+    //     setMaintenanceItem(responses.data)
+    // };
+// ******Lesson Learned******
+// The errors I was getting for log_info.map not being a function was from the backend. I had made my request a .get not a .filter. Get only returns one object while
+// filter returns an array. Mapping requires an array, so I changed the Django method back to .filter.
+// I don't know why log_info.maintenance.maintenance_name was not working. It would work after the page loaded, so comment it out, reload the page, uncomment it, save, reload then
+// log_info.maintenance.maintenance_name and others like it would appear.
     const getMaintenanceLog = async () => {
         const jwt = localStorage.getItem('token')
-        // Request Maintenance Log
-        let response = await axios.get('http://127.0.0.1:8000/api/maintenance_log/all/', {headers: {Authorization: 'Bearer ' + jwt}})
-        // Request Maintenance Item
-        let responses = await axios.get(`http://127.0.0.1:8000/api/maintenance_log/vehicle/maintenance_item_log/${log_id}/`, {headers: {Authorization: 'Bearer ' + jwt}})
+        let response = await axios.get(`http://127.0.0.1:8000/api/maintenance_log/vehicle/maintenance_item_log/${log_id}/`, {headers: {Authorization: 'Bearer ' + jwt}})
         console.log(response.data)
         setMaintenanceLog(response.data)
-        setMaintenanceItem(responses.data)
-    }
+    };
 
 
     return (
     
+        // <>
+        //     <h1>Log</h1>
+        //     <h2>{log_id}</h2>
+        //     {console.log(log_id)}
+        //     <CardGroup>
+        //         <Row xs={1} md={1} className="g-4">
+                    
+        //                 <Col>
+        //                 {maintenance_info.map((e) => 
+        //                     <Card >
+        //                         <Card.Body>
+        //                             <Card.Title>{e.maintenance_name}</Card.Title> 
+        //                             <Card.Text>Description: {e.maintenance_description} </Card.Text> 
+        //                             <Card.Text>Periodicity: {e.maintenance_miles} </Card.Text>                                             
+        //                         </Card.Body>
+        //                     </Card>
+        //                 )}
+        //                 {log_info.filter((e) => e.id == log_id).map((filtered) => 
+        //                     <Card >
+        //                         <Card.Body>
+        //                             <Card.Title>{filtered.log_title}</Card.Title> 
+        //                             <Card.Text>Miles: {filtered.log_miles} </Card.Text> 
+        //                             <Card.Text>Date: {filtered.log_date} </Card.Text> 
+        //                             <Card.Text>Editor: {filtered.operator} </Card.Text> 
+        //                             <Card.Text>Note: {filtered.log_note} </Card.Text>                
+        //                         </Card.Body>
+        //                     </Card>
+        //                 )}
+        //                 </Col>                    
+        //         </Row>
+        //     </CardGroup>
+        // </>
+
+        // Error log_info.map is not a function
         <>
             <h1>Log</h1>
             <h2>{log_id}</h2>
-            {console.log(log_id)}
+            {console.log(log_info)}
             <CardGroup>
-                <Row xs={1} md={1} className="g-4">
-                    
-                        <Col>
-                        {maintenance_info.map((e) => 
-                            <Card >
-                                <Card.Body>
-                                    <Card.Title>{e.maintenance_name}</Card.Title> 
-                                    <Card.Text>Description: {e.maintenance_description} </Card.Text> 
-                                     <Card.Text>Periodicity: {e.maintenance_miles} </Card.Text>                                             
-                                </Card.Body>
-                            </Card>
-                        )}
-                        {log_info.filter((e) => e.id == log_id).map((filtered) => 
-                            <Card >
-                                <Card.Body>
-                                    <Card.Title>{filtered.log_title}</Card.Title> 
-                                    <Card.Text>Miles: {filtered.log_miles} </Card.Text> 
-                                    <Card.Text>Date: {filtered.log_date} </Card.Text> 
-                                    <Card.Text>Editor: {filtered.operator} </Card.Text> 
-                                    <Card.Text>Note: {filtered.log_note} </Card.Text>                
-                                </Card.Body>
-                            </Card>
-                        )}
-                        </Col>                    
+                <Row xs={1} md={1} className="g-4">                   
+                    <Col>
+                    {log_info.map((e) =>
+                        <Card >
+                            <Card.Body>
+                                <Card.Title>{e.maintenance.maintenance_name}</Card.Title> 
+                                <Card.Text>Description: {e.maintenance.maintenance_description} </Card.Text> 
+                                <Card.Text>Note: {e.log_note} </Card.Text>
+                                <Card.Text>Periodicity: {e.maintenance.maintenance_miles} </Card.Text>                                    
+                                <Card.Text>Miles: {e.log_miles} </Card.Text> 
+                                <Card.Text>Date: {e.log_date} </Card.Text> 
+                                <Card.Text>Editor: {e.operator.first_name} {e.operator.last_name}</Card.Text>                                                 
+                            </Card.Body>
+                        </Card>
+                    )}
+                    </Col>                    
                 </Row>
             </CardGroup>
         </>
+
+        // Non mapping option is having mounting problems with the nested object keys like maintenance and operator object. Log object loads. Uncaught TypeError:Cannot read properties of undefined (reading 'maintenance_name')
+        // <>
+        //     <h1>Log</h1>
+        //     <h2>{log_id}</h2>
+        //     {console.log(log_info)}
+        //     <CardGroup>
+        //         <Row xs={1} md={1} className="g-4">                   
+        //             <Col>
+        //                 <Card >
+        //                     <Card.Body>
+        //                         <Card.Title>{log_info.maintenance.maintenance_name}</Card.Title> 
+        //                         <Card.Text>Description: {log_info.maintenance.maintenance_description} </Card.Text> 
+        //                         <Card.Text>Note: {log_info.log_note} </Card.Text>
+        //                         <Card.Text>Periodicity: {log_info.maintenance.maintenance_miles} </Card.Text>                                    
+        //                         <Card.Text>Miles: {log_info.log_miles} </Card.Text> 
+        //                         <Card.Text>Date: {log_info.log_date} </Card.Text> 
+        //                         <Card.Text>Editor: {log_info.operator.first_name} {log_info.operator.last_name}</Card.Text>                                                 
+        //                     </Card.Body>
+        //                 </Card>
+        //             </Col>                    
+        //         </Row>
+        //     </CardGroup>
+        // </>
     );
-}
+};
 
 export default MaintenanceLog;

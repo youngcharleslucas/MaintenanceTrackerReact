@@ -49,7 +49,8 @@ const MaintenanceLogList = (props) => {
                             <Card.Link href={`/maintenance_log/${e.id}`}>
                                 <Card>
                                     <Card.Body>
-                                        <Card.Title>{e.log_miles}</Card.Title>                        
+                                        <Card.Title>{e.maintenance.maintenance_name}</Card.Title>
+                                        <Card.Text>{e.log_miles}</Card.Text>                      
                                     </Card.Body>
                                 </Card>
                             </Card.Link>
