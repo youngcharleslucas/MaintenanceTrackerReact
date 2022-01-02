@@ -48,12 +48,12 @@ const Maintenance = (props) => {
             {console.log(vehicle_type)}
             <CardGroup>
                 <Row xs={1} md={1} className="g-4">
-                    {vehicle_maintenance.filter((e) => e.vehicle_type[0] == vehicle_type).map((filtered) => 
+                    {vehicle_maintenance.filter((filtered) => filtered.vehicle_type.id == vehicle_type).map((e) => 
                         <Col>
-                            <Card.Link href={`/maintenance_item/${filtered.id}`}>
+                            <Card.Link href={`/maintenance_item/${e.id}`}>
                                 <Card>
                                     <Card.Body>
-                                        <Card.Title>{filtered.maintenance_name}</Card.Title>                        
+                                        <Card.Title>{e.maintenance_name}</Card.Title>                        
                                     </Card.Body>
                                 </Card>
                             </Card.Link>

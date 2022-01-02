@@ -1,0 +1,30 @@
+h1 {
+    color: transparent;
+    border: cornflowerblue;
+  }
+  
+  footer {
+    background-color: black;
+  }
+  
+  .divider {
+    width: 5px;
+    height: auto;
+    display: block;
+  }
+  
+  body {
+    background: url('light-black-and-white-white-car-photography-vintage-919329-pxhere.com.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .image {
+    margin: 0;
+    text-align: center;
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+  

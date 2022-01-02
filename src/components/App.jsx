@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import Home from "./Home/home";
-import Login from "./Login/login"
-import Maintenance from "./Maintenance/maintenance"
-import MaintenanceItem from "./MaintenanceItem/maintenance_item"
+import Login from "./Login/login";
+import Maintenance from "./Maintenance/maintenance";
+import MaintenanceItem from "./MaintenanceItem/maintenance_item";
 import VehicleInfo from './VehicleInfo/vehicleInfo';
-import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/css/bootstrap.min.css";
+// copied one below from eCommerce
+import "bootstrap/dist/css/bootstrap.css";
 import MaintenanceLog from './MaintenanceLog/maintenance_log';
 import MaintenanceLogList from './MaintenanceLogList/maintenance_log_list';
 import RegisterUser from './RegisterUser/register_user';
@@ -40,7 +42,10 @@ class App extends Component {
     render() { 
         const user = this.state.user;
         return ( 
-            <div>
+            // <div>
+            <div style={{ 
+                backgroundImage: `url("https://pxhere.com/en/photo/919329?utm_content=shareClip&utm_medium=referral&utm_source=pxhere")`
+            }}>
                 <Router>
                     <NavBar user = {user} />
                     <Routes>

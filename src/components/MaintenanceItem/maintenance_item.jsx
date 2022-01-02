@@ -28,12 +28,13 @@ const MaintenanceItem = (props) => {
             {console.log(maintenance_id)}
             <CardGroup>
                 <Row xs={1} md={1} className="g-4">
-                    {maintenance_item.filter((e) => e.id == maintenance_id).map((filtered) => 
+                    {maintenance_item.filter((filtered) => filtered.id == maintenance_id).map((e) => 
                         <Col>
                             <Card >
                                 <Card.Body>
-                                    <Card.Title>{filtered.maintenance_name}</Card.Title> 
-                                    <Card.Text>{filtered.maintenance_description}</Card.Text>                       
+                                    <Card.Title>{e.maintenance_name}</Card.Title> 
+                                    <Card.Text>{e.maintenance_miles}</Card.Text> 
+                                    <Card.Text>{e.maintenance_description}</Card.Text>                   
                                 </Card.Body>
                             </Card>
                         </Col>
