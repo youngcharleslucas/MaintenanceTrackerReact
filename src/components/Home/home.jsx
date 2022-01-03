@@ -29,17 +29,9 @@ const Home = (props) => {
       <React.Fragment>
         <div className="image">
           <h1>
-            <img src="https://i.ibb.co/py4SmNk/Blank-2000-x-2000-1000-x-500.png" />
+              Maintenance Tracker
+            {/* <img src=" " /> */}
           </h1>
-          <p>
-            <a href="/buyer" class="btn btn-dark">
-              Buy
-            </a>{" "}
-            &nbsp;
-            <a href="/seller" class="btn btn-dark">
-              Sell
-            </a>
-          </p>
         </div>
       </React.Fragment>
     </Container>
