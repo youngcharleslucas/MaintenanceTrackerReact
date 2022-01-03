@@ -1,0 +1,22 @@
+.special-card {
+    background: rgba(129, 129, 129, 0.95);
+    margin: auto;
+    margin-top: 20px;
+    color: white;
+    width: 800px;
+}
+
+.container {
+    /* margin-top: 30px; */
+    margin: auto;
+    height: 100vh;
+    padding-top: 20px;
+    background:  rgba(45, 46, 48, 0.95);
+
+}
+
+/* .img {
+    height: 100px;
+    width: 798px;
+    background-image: url("car-wheel-vehicle-auto-business-sports-car-638797-pxhere.com.jpg");
+} */

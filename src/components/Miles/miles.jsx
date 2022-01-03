@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container } from 'react-bootstrap';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
+import './miles.css'
 
 const UpdateMiles = (props) => {
     const [miles, setUpdateMiles] = useState("");
@@ -51,16 +52,18 @@ const UpdateMiles = (props) => {
 
 
     return (
-        <Form onSubmit={(e) => handleSubmit(e)}>
-            {console.log(vehicle)}
-            {vehicle.map((e) =>
-                <Form.Group className="mb-3" controlId="formBasicMiles">
-                    <Form.Label>Update miles on {e.make} {e.model}</Form.Label>
-                    <Form.Control type="text" placeholder={e.miles_current} onChange={(e) => setUpdateMiles(e.target.value)}></Form.Control>
-                </Form.Group>
-            )}
-            <Button variant="primary" type="submit">Submit</Button>
-        </Form>
+        <Container fluid className="container">
+            <Form onSubmit={(e) => handleSubmit(e)}>
+                {console.log(vehicle)}
+                {vehicle.map((e) =>
+                    <Form.Group controlId="formBasicMiles">
+                        <Form.Label className="label">Update miles on {e.make} {e.model}</Form.Label>
+                        <Form.Control className="control" type="text" placeholder={e.miles_current} onChange={(e) => setUpdateMiles(e.target.value)}></Form.Control>
+                    </Form.Group>
+                )}
+                <Button className="button" variant="dark" type="submit">Submit</Button>
+            </Form>
+        </Container>
     );
 }
 
