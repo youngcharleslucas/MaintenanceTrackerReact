@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Card, CardGroup, DropdownButton, Dropdown, Row } from 'react-bootstrap';
 import axios from 'axios';
+import './garage_add_vehicle.css'
 
 const AddVehicle = (props) => {
     const [vehicles, setVehicles] = useState([])
@@ -17,14 +18,15 @@ const AddVehicle = (props) => {
         setVehicles(response.data)
     };
 
+
     return (
-        <Container>
+        <Container fluid className='container'>
             <>
                 <CardGroup>
-                    <Row xs={1} md={1} className="g-4">
+                    <Row xs={1} md={1} >
                         {vehicles.map((e) =>
-                            <Card style={{width: '18rem'}}>
-                                <Card.Img variant="top" src="holder.js/100px180" />
+                            <Card className='special-card'>
+                                <Card.Img className="img" variant="top" src="https://i.imgur.com/kdTpGzr.jpg" />
                                 <Card.Title>{e.make} {e.model}</Card.Title>
                                 {/* <Button type="submit" onClick={(e) => } */}
                             </Card>

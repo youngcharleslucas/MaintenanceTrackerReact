@@ -1,12 +1,13 @@
-import React, {useState} from 'react'
-import axios from 'axios'
-import {Form, Button, Container, FormLabel} from 'react-bootstrap'
+import React, {useState} from 'react';
+import axios from 'axios';
+import {Form, Button, Container} from 'react-bootstrap';
+import './register_user.css'
 
 const RegisterUser = () => {
     const [userName, setUserName] = useState ("");
     const [passWord, setPassWord] = useState ("");
     const [email, setEmail] = useState ("");
-    const [fristName, setFirstName] = useState ("");
+    const [firstName, setFirstName] = useState ("");
     const [lastName, setLastName] = useState ("");
     const [middleName, setMiddleName] = useState ("");
     const [role, setRole] = useState ("");
@@ -15,7 +16,7 @@ const RegisterUser = () => {
         username: userName,
         password: passWord,
         email: email,
-        first_name: fristName,
+        first_name: firstName,
         last_name: lastName,
         middle_name: middleName,
         role: role,
@@ -32,46 +33,87 @@ const RegisterUser = () => {
     };
 
     return (
-        <Form onSubmit={(e) => handleSubmit(e)}>
-            <Form.Group className="mb-3" controlId="formBasicUserName">
-                <Form.Label>User Name</Form.Label>
-                <Form.Control type="text" onChange={(e) => setUserName(e.target.value)}></Form.Control>
-            </Form.Group>
+        <Container fluid className='container'>
+            <>
+                <Form onSubmit={(e) => handleSubmit(e)}>
+                    <Form.Group controlId="formBasicUserName">                        
+                        <Form.Control className='control' style={{width:'300px'}} 
+                            name="userName" 
+                            value="userName" 
+                            type="text" 
+                            onChange={(e) => setUserName(e.target.value)}>                                
+                        </Form.Control>
+                        <Form.Label className='label'>User Name</Form.Label>
+                    </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" onChange={(e) => setPassWord(e.target.value)}></Form.Control>
-            </Form.Group>
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Control className='control' style={{width:'300px'}} 
+                            name="passWord" 
+                            value="passWord" 
+                            type="password" 
+                            onChange={(e) => setPassWord(e.target.value)}>                            
+                        </Form.Control>
+                        <Form.Label className='label'>Password</Form.Label>
+                    </Form.Group>
 
+                    <Form.Group controlId="formBasicEmail">                        
+                        <Form.Control className='control' style={{width:'300px'}} 
+                            name="email" 
+                            value="email" 
+                            type="email" 
+                            onChange={(e) => setEmail(e.target.value)}>                            
+                        </Form.Control>
+                        <Form.Label className='label'>Email</Form.Label>
+                    </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" onChange={(e) => setEmail(e.target.value)}></Form.Control>
-            </Form.Group>
+                    <Form.Group controlId="formBasicFirst">                        
+                        <Form.Control className='control' 
+                            style={{width:'300px'}} 
+                            name="firstName" 
+                            value="firstName" 
+                            type="text"
+                            onChange={(e) => setFirstName(e.target.value)}>                            
+                        </Form.Control>
+                        <Form.Label className='label'>First Name</Form.Label>
+                    </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicFirst">
-                <Form.Label>First Name</Form.Label>
-                <Form.Control type="text" onChange={(e) => setFirstName(e.target.value)}></Form.Control>
-            </Form.Group>
+                    <Form.Group controlId="formBasicLast">                        
+                        <Form.Control className='control' 
+                            style={{width:'300px'}} 
+                            name="lastName" 
+                            value={lastName} 
+                            type="text" 
+                            onChange={(e) => setLastName(e.target.value)}>                            
+                        </Form.Control>
+                        <Form.Label className='label'>Last Name</Form.Label>
+                    </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicLast">
-                <Form.Label>Last Name</Form.Label>
-                <Form.Control type="text" onChange={(e) => setLastName(e.target.value)}></Form.Control>
-            </Form.Group>
+                    <Form.Group controlId="formBasicMiddle">                        
+                        <Form.Control className='control' 
+                            style={{width:'300px'}} 
+                            name="middleName" 
+                            value="{middleName}" 
+                            type="text" 
+                            onChange={(e) => setMiddleName(e.target.value)}>                            
+                        </Form.Control>
+                        <Form.Label className='label'>Middle Name</Form.Label>
+                    </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicMiddle">
-                <Form.Label>Middle Name</Form.Label>
-                <Form.Control type="text" onChange={(e) => setMiddleName(e.target.value)}></Form.Control>
-            </Form.Group>
+                    <Form.Group controlId="formBasicRole">                        
+                        <Form.Control className='control' 
+                            style={{width:'300px'}} 
+                            name="role" 
+                            value={{role}} 
+                            type="text" 
+                            onChange={(e) => setRole(e.target.value)}>                            
+                        </Form.Control>
+                        <Form.Label className='label'>Role</Form.Label>
+                    </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicRole">
-                <Form.Label>Role</Form.Label>
-                <Form.Control type="text" onChange={(e) => setRole(e.target.value)}></Form.Control>
-            </Form.Group>
-
-            <Button variant="primary" type="submit">Submit</Button>
-        </Form>
-
+                    <Button className='button' variant="dark" type="submit">Submit</Button>
+                </Form>
+            </>
+        </Container>
     );
 
 };

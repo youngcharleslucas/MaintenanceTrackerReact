@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
-import axios from 'axios'
-import {Form, Button} from 'react-bootstrap'
+import React, {useState} from 'react';
+import axios from 'axios';
+import {Form, Button, Container} from 'react-bootstrap';
+import './vehicle_create.css'
 
 const VehicleCreate = () => {
     const [vin, setVIN] = useState ("");
@@ -32,41 +33,45 @@ const VehicleCreate = () => {
 
 
     return (
-        <Form onSubmit={(e) => handleSubmit(e)}>
+        <Container fluid className='container'>
+            <>
+                <Form onSubmit={(e) => handleSubmit(e)}>
 
-            <Form.Group className="mb=3" controlId="formBasicVIN">
-                <Form.Label> VIN </Form.Label>
-                <Form.Control type="text" onChange={(e) => setVIN(e.target.value)}></Form.Control>
-            </Form.Group>
+                    <Form.Group controlId="formBasicVIN">                        
+                        <Form.Control className='control' type="text" onChange={(e) => setVIN(e.target.value)}></Form.Control>
+                        <Form.Label className='label'> VIN </Form.Label>
+                    </Form.Group>
 
-            <Form.Group className="mb=3" controlId="formBasicMake">
-                <Form.Label> Make </Form.Label>
-                <Form.Control type="text" onChange={(e) => setMake(e.target.value)}></Form.Control>
-            </Form.Group>
+                    <Form.Group controlId="formBasicMake">
+                        <Form.Control className='control' type="text" onChange={(e) => setMake(e.target.value)}></Form.Control>
+                        <Form.Label className='label'> Make </Form.Label>
+                    </Form.Group>
 
-            <Form.Group className="mb=3" controlId="formBasicModel">
-                <Form.Label> Model </Form.Label>
-                <Form.Control type="text" onChange={(e) => setModel(e.target.value)}></Form.Control>
-            </Form.Group>
+                    <Form.Group controlId="formBasicModel">                        
+                        <Form.Control className='control' type="text" onChange={(e) => setModel(e.target.value)}></Form.Control>
+                        <Form.Label className='label'> Model </Form.Label>
+                    </Form.Group>
 
-            <Form.Group className="mb=3" controlId="formBasicTrim">
-                <Form.Label> Trim </Form.Label>
-                <Form.Control type="text" onChange={(e) => setTrim(e.target.value)}></Form.Control>
-            </Form.Group>
+                    <Form.Group controlId="formBasicTrim">                        
+                        <Form.Control className='control' type="text" onChange={(e) => setTrim(e.target.value)}></Form.Control>
+                        <Form.Label className='label'> Trim </Form.Label>
+                    </Form.Group>
 
-            <Form.Group className="mb=3" controlId="formBasicDriveType">
-                <Form.Label> Drive Type </Form.Label>
-                <Form.Control type="text" onChange={(e) => setDriveType(e.target.value)}></Form.Control>
-            </Form.Group>
+                    <Form.Group controlId="formBasicDriveType">                        
+                        <Form.Control className='control' type="text" onChange={(e) => setDriveType(e.target.value)}></Form.Control>
+                        <Form.Label className='label'> Drive Type </Form.Label>
+                    </Form.Group>
 
-            <Form.Group className="mb=3" controlId="formBasicVehicleType">
-                <Form.Label> Vehicle Type </Form.Label>
-                <Form.Control type="text" onChange={(e) => setVehicleType(e.target.value)}></Form.Control>
-            </Form.Group>
+                    <Form.Group controlId="formBasicVehicleType">                        
+                        <Form.Control className='control' type="text" onChange={(e) => setVehicleType(e.target.value)}></Form.Control>
+                        <Form.Label className='label'> Vehicle Type </Form.Label>
+                    </Form.Group>
 
-            <Button variant="primary" type="submit">Submit</Button>
+                    <Button className='button' variant="dark" type="submit">Submit</Button>
 
-        </Form>
+                </Form>
+            </>
+        </Container>
     );
 };
 
