@@ -1,0 +1,28 @@
+.special-card {
+    background: rgba(129, 129, 129, 0.95);
+    margin: auto;
+    margin-top: 20px;
+    color: white;
+    width: 800px;
+    text-decoration: none;
+}
+
+.container {
+    /* margin-top: 30px; */
+    margin: auto;
+    padding-top: 20px;
+    background:  rgba(45, 46, 48, 0.95);
+
+}
+
+.title {
+    text-decoration: none;
+}
+
+.text {
+    text-decoration: none;
+}
+
+.link {
+    text-decoration: none;
+}

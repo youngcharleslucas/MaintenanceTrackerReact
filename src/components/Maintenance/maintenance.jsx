@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Card, CardGroup, Row, Col } from 'react-bootstrap';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
+import './maintenance.css'
 
 const Maintenance = (props) => {
     const [vehicle_maintenance, setVehicleMaintenance] = useState([]);
@@ -41,27 +42,30 @@ const Maintenance = (props) => {
         //         </Row>
         //     </CardGroup>
         // </>
-        <>
-            <h1>Maintenance</h1>
-            <h2>{vehicle_type}</h2>
-            {console.log(vehicle_maintenance)}
-            {console.log(vehicle_type)}
-            <CardGroup>
-                <Row xs={1} md={1} className="g-4">
-                    {vehicle_maintenance.filter((filtered) => filtered.vehicle_type.id == vehicle_type).map((e) => 
-                        <Col>
-                            <Card.Link href={`/maintenance_item/${e.id}`}>
-                                <Card>
-                                    <Card.Body>
-                                        <Card.Title>{e.maintenance_name}</Card.Title>                        
-                                    </Card.Body>
-                                </Card>
-                            </Card.Link>
-                        </Col>
-                    )}
-                </Row>
-            </CardGroup>
-        </>
+        <Container fluid className="container">
+            <>
+                {/* <h1>Maintenance</h1>
+                <h2>{vehicle_type}</h2>
+                {console.log(vehicle_maintenance)}
+                {console.log(vehicle_type)}
+                <CardGroup>
+                    <Row xs={1} md={1} className="g-4"> */}
+                        {vehicle_maintenance.filter((filtered) => filtered.vehicle_type.id == vehicle_type).map((e) => 
+                            // <Col>
+                                <Card.Link className="link" href={`/maintenance_item/${e.id}`}>
+                                    <Card className="special-card">
+                                        <Card.Body>
+                                            <Card.Title>{e.maintenance_name}</Card.Title>  
+                                            <Card.Text>Periodicity: {e.maintenance_miles}</Card.Text>                      
+                                        </Card.Body>
+                                    </Card>
+                                </Card.Link>
+                            // </Col>
+                        )}
+                    {/* </Row>
+                </CardGroup> */}
+            </>
+        </Container>
     );
         
 }

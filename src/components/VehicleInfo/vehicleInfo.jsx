@@ -24,8 +24,8 @@ const VehicleInfo = (props) => {
     return (
         <Container fluid className="container">
             <>
-                <h1>Vehicle Info</h1>
-                <h2>{vehicle_id}</h2>
+                {/* <h1>Vehicle Info</h1>
+                <h2>{vehicle_id}</h2> */}
                 {console.log(vehicle_id)}
                 {/* <CardGroup>
                     <Row xs={1} md={1} className="g-4"> */}

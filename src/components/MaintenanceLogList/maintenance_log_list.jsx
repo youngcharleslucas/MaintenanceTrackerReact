@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Card, CardGroup, Row, Col } from 'react-bootstrap';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
+import "./maintenance_log_list.css"
 
 const MaintenanceLogList = (props) => {
     const [log_list, setMaintenanceLogList] = useState([]);
@@ -38,27 +39,28 @@ const MaintenanceLogList = (props) => {
     };
 
     return (
-    
-        <>
-            <h1>Maintenance Log List</h1>
-            <h2>{vehicle_id}</h2>
-            <CardGroup>
-                <Row xs={1} md={1} className="g-4">
-                    {log_list.map((e) => 
-                        <Col>
-                            <Card.Link href={`/maintenance_log/${e.id}`}>
-                                <Card>
-                                    <Card.Body>
-                                        <Card.Title>{e.maintenance.maintenance_name}</Card.Title>
-                                        <Card.Text>{e.log_miles}</Card.Text>                      
-                                    </Card.Body>
-                                </Card>
-                            </Card.Link>
-                        </Col>
-                    )}
-                </Row>
-            </CardGroup>
-        </>
+        <Container fluid className="container">   
+            <>
+                {/* <h1 color="white" >Maintenance Log List</h1> */}
+                {/* <h2>{vehicle_id}</h2> */}
+                <CardGroup>
+                    <Row xs={1} md={1} className="g-4">
+                        {log_list.map((e) => 
+                            <Col>
+                                <Card.Link className="link" href={`/maintenance_log/${e.id}`}>
+                                    <Card className="special-card">
+                                        <Card.Body>
+                                            <Card.Title className="title">{e.maintenance.maintenance_name}</Card.Title>
+                                            <Card.Text className="text">{e.log_miles}</Card.Text>                      
+                                        </Card.Body>
+                                    </Card>
+                                </Card.Link>
+                            </Col>
+                        )}
+                    </Row>
+                </CardGroup>
+            </>
+        </Container> 
     );
         
 }

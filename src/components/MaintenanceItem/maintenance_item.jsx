@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Card, CardGroup, Row, Col } from 'react-bootstrap';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
+import './maintenance_item.css'
 
 const MaintenanceItem = (props) => {
     const [maintenance_item, setMaintenanceItem] = useState([]);
@@ -20,28 +21,29 @@ const MaintenanceItem = (props) => {
 
     }
     return (
-    
-        <>
-            <h1>Maintenance Item</h1>
-            <h2>{maintenance_id}</h2>
-            {console.log(maintenance_item)}
-            {console.log(maintenance_id)}
-            <CardGroup>
-                <Row xs={1} md={1} className="g-4">
-                    {maintenance_item.filter((filtered) => filtered.id == maintenance_id).map((e) => 
-                        <Col>
-                            <Card >
-                                <Card.Body>
-                                    <Card.Title>{e.maintenance_name}</Card.Title> 
-                                    <Card.Text>{e.maintenance_miles}</Card.Text> 
-                                    <Card.Text>{e.maintenance_description}</Card.Text>                   
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    )}
-                </Row>
-            </CardGroup>
-        </>
+        <Container fluid className="container">
+            <>
+                {/* <h1>Maintenance Item</h1>
+                <h2>{maintenance_id}</h2>
+                {console.log(maintenance_item)}
+                {console.log(maintenance_id)}
+                <CardGroup>
+                    <Row xs={1} md={1} className="g-4"> */}
+                        {maintenance_item.filter((filtered) => filtered.id == maintenance_id).map((e) => 
+                            // <Col>
+                                <Card className="special-card">
+                                    <Card.Body>
+                                        <Card.Title>{e.maintenance_name}</Card.Title> 
+                                        <Card.Text>Periodicity: {e.maintenance_miles}</Card.Text> 
+                                        <Card.Text>Description: {e.maintenance_description}</Card.Text>                   
+                                    </Card.Body>
+                                </Card>
+                            // </Col> 
+                        )}
+                    {/* </Row>
+                </CardGroup> */}
+            </>
+        </Container>
     );
 }
 

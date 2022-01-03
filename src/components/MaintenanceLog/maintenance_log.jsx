@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Card, CardGroup, Row, Col } from 'react-bootstrap';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
+import './maintenance_log.css'
 
 const MaintenanceLog = (props) => {
     const [log_info, setMaintenanceLog] = useState([]);
@@ -73,31 +74,33 @@ const MaintenanceLog = (props) => {
         //     </CardGroup>
         // </>
 
-        // Error log_info.map is not a function
-        <>
-            <h1>Log</h1>
-            <h2>{log_id}</h2>
-            {console.log(log_info)}
-            <CardGroup>
-                <Row xs={1} md={1} className="g-4">                   
-                    <Col>
-                    {log_info.map((e) =>
-                        <Card >
-                            <Card.Body>
-                                <Card.Title>{e.maintenance.maintenance_name}</Card.Title> 
-                                <Card.Text>Description: {e.maintenance.maintenance_description} </Card.Text> 
-                                <Card.Text>Note: {e.log_note} </Card.Text>
-                                <Card.Text>Periodicity: {e.maintenance.maintenance_miles} </Card.Text>                                    
-                                <Card.Text>Miles: {e.log_miles} </Card.Text> 
-                                <Card.Text>Date: {e.log_date} </Card.Text> 
-                                <Card.Text>Editor: {e.operator.first_name} {e.operator.last_name}</Card.Text>                                                 
-                            </Card.Body>
-                        </Card>
-                    )}
-                    </Col>                    
-                </Row>
-            </CardGroup>
-        </>
+        // I changed the Django method to a filter not a get. I think this made the response an array which could be mapped vs a dictionary.
+        <Container fluid className="container">
+            <>
+                {/* <h1>Log</h1>
+                <h2>{log_id}</h2> */}
+                {console.log(log_info)}
+                {/* <CardGroup> */}
+                    {/* <Row xs={1} md={1} className="g-4">                   
+                        <Col> */}
+                        {log_info.map((e) =>
+                            <Card className="special-card">
+                                <Card.Body>
+                                    <Card.Title>{e.maintenance.maintenance_name}</Card.Title> 
+                                    <Card.Text>Description: {e.maintenance.maintenance_description} </Card.Text> 
+                                    <Card.Text>Note: {e.log_note} </Card.Text>
+                                    <Card.Text>Periodicity: {e.maintenance.maintenance_miles} </Card.Text>                                    
+                                    <Card.Text>Miles: {e.log_miles} </Card.Text> 
+                                    <Card.Text>Date: {e.log_date} </Card.Text> 
+                                    <Card.Text>Editor: {e.operator.first_name} {e.operator.last_name}</Card.Text>                                                 
+                                </Card.Body>
+                            </Card>
+                        )}
+                        {/* </Col>                    
+                    </Row> */}
+                {/* </CardGroup> */}
+            </>
+        </Container>
 
         // Non mapping option is having mounting problems with the nested object keys like maintenance and operator object. Log object loads. Uncaught TypeError:Cannot read properties of undefined (reading 'maintenance_name')
         // <>
