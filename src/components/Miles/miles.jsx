@@ -58,7 +58,7 @@ const UpdateMiles = (props) => {
                 {vehicle.map((e) =>
                     <Form.Group controlId="formBasicMiles">
                         <Form.Label className="label">Update miles on {e.make} {e.model}</Form.Label>
-                        <Form.Control className="control" type="text" placeholder={e.miles_current} onChange={(e) => setUpdateMiles(e.target.value)}></Form.Control>
+                        <Form.Control className="control-space" type="text" placeholder={e.miles_current} onChange={(e) => setUpdateMiles(e.target.value)}></Form.Control>
                     </Form.Group>
                 )}
                 <Button className="button" variant="dark" type="submit">Submit</Button>

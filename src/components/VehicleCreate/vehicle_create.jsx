@@ -38,32 +38,32 @@ const VehicleCreate = () => {
                 <Form onSubmit={(e) => handleSubmit(e)}>
 
                     <Form.Group controlId="formBasicVIN">                        
-                        <Form.Control className='control' type="text" onChange={(e) => setVIN(e.target.value)}></Form.Control>
+                        <Form.Control className='control-space' style={{width:"300px"}} type="text" onChange={(e) => setVIN(e.target.value)}></Form.Control>
                         <Form.Label className='label'> VIN </Form.Label>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicMake">
-                        <Form.Control className='control' type="text" onChange={(e) => setMake(e.target.value)}></Form.Control>
+                        <Form.Control className='control-space' style={{width:"300px"}} type="text" onChange={(e) => setMake(e.target.value)}></Form.Control>
                         <Form.Label className='label'> Make </Form.Label>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicModel">                        
-                        <Form.Control className='control' type="text" onChange={(e) => setModel(e.target.value)}></Form.Control>
+                        <Form.Control className='control-space' style={{width:"300px"}} type="text" onChange={(e) => setModel(e.target.value)}></Form.Control>
                         <Form.Label className='label'> Model </Form.Label>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicTrim">                        
-                        <Form.Control className='control' type="text" onChange={(e) => setTrim(e.target.value)}></Form.Control>
+                        <Form.Control className='control-space' style={{width:"300px"}} type="text" onChange={(e) => setTrim(e.target.value)}></Form.Control>
                         <Form.Label className='label'> Trim </Form.Label>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicDriveType">                        
-                        <Form.Control className='control' type="text" onChange={(e) => setDriveType(e.target.value)}></Form.Control>
+                        <Form.Control className='control-space' style={{width:"300px"}} type="text" onChange={(e) => setDriveType(e.target.value)}></Form.Control>
                         <Form.Label className='label'> Drive Type </Form.Label>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicVehicleType">                        
-                        <Form.Control className='control' type="text" onChange={(e) => setVehicleType(e.target.value)}></Form.Control>
+                        <Form.Control className='control-space' style={{width:"300px"}} type="text" onChange={(e) => setVehicleType(e.target.value)}></Form.Control>
                         <Form.Label className='label'> Vehicle Type </Form.Label>
                     </Form.Group>
 

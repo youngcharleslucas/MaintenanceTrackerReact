@@ -23,18 +23,18 @@ const Login = (props) => {
     return(
     
         <div>
-            <Container align="center" fluid className='container'>
+            <Container fluid className='container'>
                 <>
                     {/* <h1>Login</h1> */}
                     {/* The function onFormSubmit() will automatically load when the page loads. To prevent this either use an arrow function or get rid of the () */}
                     <Form onSubmit={onFormSubmit}>
                         <Form.Group controlId="formBasicUsername">                        
-                            <Form.Control style={{width:"300px"}} type="text" name="userName" placeholder="User Name" value={userName} onChange={(e) => setUserName(e.target.value)} />
+                            <Form.Control className="control-space" style={{width:"300px"}} type="text" name="userName" placeholder="User Name" value={userName} onChange={(e) => setUserName(e.target.value)} />
                             <Form.Label className='label'>Username</Form.Label>
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword">                        
-                            <Form.Control style={{width:"300px"}} type="password" name="userPassword" placeholder="Password" value={userPassword} onChange={(e) => setUserPassword(e.target.value)} />
+                            <Form.Control className="control-space" style={{width:"300px"}} type="password" name="userPassword" placeholder="Password" value={userPassword} onChange={(e) => setUserPassword(e.target.value)} />
                             <Form.Label className='label'>Password</Form.Label>
                         </Form.Group>
 

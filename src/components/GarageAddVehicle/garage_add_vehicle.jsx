@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Card, CardGroup, DropdownButton, Dropdown, Row } from 'react-bootstrap';
+import { Container, Card, CardGroup, Button, Row } from 'react-bootstrap';
 import axios from 'axios';
 import './garage_add_vehicle.css'
+import { useParams } from 'react-router-dom';
 
 const AddVehicle = (props) => {
     const [vehicles, setVehicles] = useState([])
+    // const [added_vehicle, setAddedVehicle] = useState("")
+
+    const {user_id} = useParams();
 
     useEffect(() => {
         getVehicles()
@@ -18,6 +22,25 @@ const AddVehicle = (props) => {
         setVehicles(response.data)
     };
 
+    // const new_relation = {
+    //     operator: user_id,
+    //     vehicle: added_vehicle
+    // };
+
+    const handleSubmit = async (event, added_vehicle) => {
+        event.preventDefault();
+        const new_relation = {
+            operator: user_id,
+            vehicle: added_vehicle
+        };
+        const jwt = localStorage.getItem('token')
+        let response = await axios.post('http://127.0.0.1:8000/api/operator_vehicle/add_vehicle/', new_relation, {headers: {Authorization: 'Bearer ' + jwt}})
+        console.log(response.data)
+        if (response.request.status === 201) {
+            alert('Vehicle added to garage');
+        }
+
+    }
 
     return (
         <Container fluid className='container'>
@@ -26,9 +49,9 @@ const AddVehicle = (props) => {
                     <Row xs={1} md={1} >
                         {vehicles.map((e) =>
                             <Card className='special-card'>
-                                <Card.Img className="img" variant="top" src="https://i.imgur.com/kdTpGzr.jpg" />
+                                <Card.Img className="img-basic" variant="top" src="https://i.imgur.com/kdTpGzr.jpg" />
                                 <Card.Title>{e.make} {e.model}</Card.Title>
-                                {/* <Button type="submit" onClick={(e) => } */}
+                                <Button onClick={(event) => handleSubmit(event, e.id)}>Add</Button>
                             </Card>
                         )}
                     </Row>

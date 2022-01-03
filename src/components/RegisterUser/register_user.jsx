@@ -37,9 +37,9 @@ const RegisterUser = () => {
             <>
                 <Form onSubmit={(e) => handleSubmit(e)}>
                     <Form.Group controlId="formBasicUserName">                        
-                        <Form.Control className='control' style={{width:'300px'}} 
+                        <Form.Control className='space' style={{width:'300px'}} 
                             name="userName" 
-                            value="userName" 
+                            // value="userName" 
                             type="text" 
                             onChange={(e) => setUserName(e.target.value)}>                                
                         </Form.Control>
@@ -47,9 +47,9 @@ const RegisterUser = () => {
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
-                        <Form.Control className='control' style={{width:'300px'}} 
+                        <Form.Control className='space' style={{width:'300px'}} 
                             name="passWord" 
-                            value="passWord" 
+                            // value="passWord" 
                             type="password" 
                             onChange={(e) => setPassWord(e.target.value)}>                            
                         </Form.Control>
@@ -57,9 +57,9 @@ const RegisterUser = () => {
                     </Form.Group>
 
                     <Form.Group controlId="formBasicEmail">                        
-                        <Form.Control className='control' style={{width:'300px'}} 
+                        <Form.Control className='space' style={{width:'300px'}} 
                             name="email" 
-                            value="email" 
+                            // value="email" 
                             type="email" 
                             onChange={(e) => setEmail(e.target.value)}>                            
                         </Form.Control>
@@ -67,10 +67,10 @@ const RegisterUser = () => {
                     </Form.Group>
 
                     <Form.Group controlId="formBasicFirst">                        
-                        <Form.Control className='control' 
+                        <Form.Control className='space' 
                             style={{width:'300px'}} 
                             name="firstName" 
-                            value="firstName" 
+                            // value="firstName" 
                             type="text"
                             onChange={(e) => setFirstName(e.target.value)}>                            
                         </Form.Control>
@@ -78,10 +78,10 @@ const RegisterUser = () => {
                     </Form.Group>
 
                     <Form.Group controlId="formBasicLast">                        
-                        <Form.Control className='control' 
+                        <Form.Control className='space' 
                             style={{width:'300px'}} 
                             name="lastName" 
-                            value={lastName} 
+                            // value={lastName} 
                             type="text" 
                             onChange={(e) => setLastName(e.target.value)}>                            
                         </Form.Control>
@@ -89,10 +89,10 @@ const RegisterUser = () => {
                     </Form.Group>
 
                     <Form.Group controlId="formBasicMiddle">                        
-                        <Form.Control className='control' 
+                        <Form.Control className='space' 
                             style={{width:'300px'}} 
                             name="middleName" 
-                            value="{middleName}" 
+                            // value="{middleName}" 
                             type="text" 
                             onChange={(e) => setMiddleName(e.target.value)}>                            
                         </Form.Control>
@@ -100,10 +100,10 @@ const RegisterUser = () => {
                     </Form.Group>
 
                     <Form.Group controlId="formBasicRole">                        
-                        <Form.Control className='control' 
+                        <Form.Control className='space' 
                             style={{width:'300px'}} 
                             name="role" 
-                            value={{role}} 
+                            // value={{role}} 
                             type="text" 
                             onChange={(e) => setRole(e.target.value)}>                            
                         </Form.Control>
