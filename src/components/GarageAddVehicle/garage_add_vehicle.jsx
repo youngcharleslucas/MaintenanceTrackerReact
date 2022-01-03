@@ -6,18 +6,18 @@ import { useParams } from 'react-router-dom';
 
 const AddVehicle = (props) => {
     const [vehicles, setVehicles] = useState([])
-    // const [added_vehicle, setAddedVehicle] = useState("")
+    const [added_vehicle, setAddedVehicle] = useState("")
 
     const {user_id} = useParams();
 
     useEffect(() => {
         getVehicles()
-    }, [])
+    }, [added_vehicle])
 
     const getVehicles = async () => {
-        // const jwt = localStorage.getItem('token')
+        const jwt = localStorage.getItem('token')
         // let response = await axios.get('http://127.0.0.1:8000/api/vehicle/all/', {headers: {Authoriaztion: 'Bearer ' + jwt}})
-        let response = await axios.get('http://127.0.0.1:8000/api/vehicle/all/')
+        let response = await axios.get(`http://127.0.0.1:8000/api/vehicle/nongarage_vehicle/${user_id}/`, {headers: {Authorization: 'Bearer ' + jwt}})
         console.log(response.data)
         setVehicles(response.data)
     };
@@ -34,11 +34,12 @@ const AddVehicle = (props) => {
             vehicle: added_vehicle
         };
         const jwt = localStorage.getItem('token')
-        let response = await axios.post('http://127.0.0.1:8000/api/operator_vehicle/add_vehicle/', new_relation, {headers: {Authorization: 'Bearer ' + jwt}})
+        let response = await axios.post(`http://127.0.0.1:8000/api/operator_vehicle/add_vehicle/`, new_relation, {headers: {Authorization: 'Bearer ' + jwt}})
         console.log(response.data)
         if (response.request.status === 201) {
             alert('Vehicle added to garage');
         }
+        setAddedVehicle(response.data)
 
     }
 
@@ -47,11 +48,12 @@ const AddVehicle = (props) => {
             <>
                 <CardGroup>
                     <Row xs={1} md={1} >
+                        {console.log(vehicles)}
                         {vehicles.map((e) =>
                             <Card className='special-card'>
                                 <Card.Img className="img-basic" variant="top" src="https://i.imgur.com/kdTpGzr.jpg" />
                                 <Card.Title>{e.make} {e.model}</Card.Title>
-                                <Button onClick={(event) => handleSubmit(event, e.id)}>Add</Button>
+                                <Button variant="dark" onClick={(event) => handleSubmit(event, e.id)}>Add</Button>
                             </Card>
                         )}
                     </Row>
@@ -62,3 +64,5 @@ const AddVehicle = (props) => {
 };
 
 export default AddVehicle;
+
+// filter((filtered) => filtered.operator.id != user_id)

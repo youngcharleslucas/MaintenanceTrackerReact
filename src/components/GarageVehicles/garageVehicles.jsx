@@ -28,7 +28,7 @@ const GarageVehicles = (props) => {
                   {/* <Col> */}
                     {vehicles.map((e) =>
                         <Card className="special-card">
-                            <Card.Img className="img" variant="top" src="https://i.imgur.com/kdTpGzr.jpg" />
+                            <Card.Img className="img-basic" variant="top" src="https://i.imgur.com/kdTpGzr.jpg" />
                             <Card.Body>
                                 <Card.Title>{e.make} {e.model}</Card.Title>
                                 {/* <Card.Text>{e.drive_type}</Card.Text> */}

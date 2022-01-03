@@ -1,6 +1,8 @@
 .special-card {
     background: rgba(129, 129, 129, 0.95);
     margin: auto;
+    margin-right: 4px;
+    margin-left: 4 px;
     margin-top: 20px;
     color: white;
     width: 600px;
