@@ -4,7 +4,7 @@
     width: 800px;
 }
 
-.container {
+.alert-container {
     /* margin-top: 30px; */
     margin: auto;
     padding-top: 20px;
@@ -12,8 +12,6 @@
 
 }
 
-.img {
-    height: 100px;
-    width: 798px;
-    /* background-image: url("car-wheel-vehicle-auto-business-sports-car-638797-pxhere.com.jpg"); */
+.alert-title {
+    color:white;
 }

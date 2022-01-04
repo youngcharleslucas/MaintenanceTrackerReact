@@ -20,15 +20,15 @@ const GarageVehicles = (props) => {
     };
 
     return (
-        <Container fluid className="container">
+        <Container fluid className="garage-container">
             <>
-              {/* <Row > */}
+              <Row >
             {/* Array did not work. It created duplicates of the mapped objects */}
               {/* {Array.from({ length: 2 }).map((_, idx) => ( */}
                   {/* <Col> */}
                     {vehicles.map((e) =>
-                        <Card className="special-card">
-                            <Card.Img className="img-basic" variant="top" src="https://i.imgur.com/kdTpGzr.jpg" />
+                        <Card className="garage-card">
+                            <Card.Img className="garage-img" variant="top" src="https://i.imgur.com/kdTpGzr.jpg" />
                             <Card.Body>
                                 <Card.Title>{e.make} {e.model}</Card.Title>
                                 {/* <Card.Text>{e.drive_type}</Card.Text> */}
@@ -42,10 +42,10 @@ const GarageVehicles = (props) => {
                                 </DropdownButton>
                             </Card.Body>
                         </Card>
-                    )}
+                     )} 
                   {/* </Col> */}
               {/* ))} */}
-              {/* </Row>     */}
+              </Row>   
             </>
         </Container>
 

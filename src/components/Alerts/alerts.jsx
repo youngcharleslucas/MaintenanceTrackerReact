@@ -30,12 +30,12 @@ const AlertsPage = (props) => {
 
 
     return (
-        <Container fluid className="container">
+        <Container fluid className="alert-container">
             <>
             {/* <h1>Alerts</h1>
                 <h2>{vehicle_id}</h2>                 */}
-                    <h1>Overdue</h1>  
-                    <hr />                 
+                    <h1 className='alert-title'>Overdue</h1>  
+                    <hr className='alert-title'/>                 
                         {alert_list.filter((filtered) => filtered.vehicle.miles_current > (filtered.log_miles + filtered.maintenance.maintenance_miles)).map((e) =>
                             <Row>
                                 <Alert variant="danger" className='alert'>
@@ -48,8 +48,8 @@ const AlertsPage = (props) => {
                                 </Alert>               
                             </Row>
                         )}
-                    <h1>Approaching</h1> 
-                    <hr />                    
+                    <h1 className='alert-title'>Approaching</h1> 
+                    <hr className='alert-title'/>                    
                         {alert_list.filter((filtered) => (filtered.vehicle.miles_current + 500) > (filtered.log_miles + filtered.maintenance.maintenance_miles) && (filtered.vehicle.miles_current) < (filtered.log_miles + filtered.maintenance.maintenance_miles) ).map((e) =>
                             <Row>
                                 <Alert variant="warning" className='alert'>
@@ -62,8 +62,8 @@ const AlertsPage = (props) => {
                                 </Alert>               
                             </Row>
                         )}
-                    <h1>Scheduled</h1> 
-                    <hr />                    
+                    <h1 className='alert-title'>Scheduled</h1> 
+                    <hr className='alert-title'/>                    
                         {alert_list.filter((filtered) => (filtered.vehicle.miles_current + 500) < (filtered.log_miles + filtered.maintenance.maintenance_miles) ).map((e) =>
                             <Row>
                                 <Alert variant="success" className='alert'>
