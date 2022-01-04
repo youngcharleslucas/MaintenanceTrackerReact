@@ -50,10 +50,10 @@ const AddVehicle = (props) => {
                     <Row xs={1} md={1} >
                         {console.log(vehicles)}
                         {vehicles.map((e) =>
-                            <Card className='special-card'>
-                                <Card.Img className="img-basic" variant="top" src="https://i.imgur.com/kdTpGzr.jpg" />
-                                <Card.Title>{e.make} {e.model}</Card.Title>
-                                <Button variant="dark" onClick={(event) => handleSubmit(event, e.id)}>Add</Button>
+                            <Card className='addvehicle-card'>
+                                <Card.Img className="addvehicle-img" variant="top" src="https://i.imgur.com/kdTpGzr.jpg" />
+                                <Card.Title className='addvehicle-title'>{e.make} {e.model}</Card.Title>
+                                <Button className="addvehicle-button" variant="dark" onClick={(event) => handleSubmit(event, e.id)}>Add</Button>
                             </Card>
                         )}
                     </Row>

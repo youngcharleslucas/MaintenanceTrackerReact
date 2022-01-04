@@ -1,11 +1,10 @@
-.special-card {
+.addvehicle-card {
     background: rgba(129, 129, 129, 0.95);
     margin: auto;
-    margin-right: 4px;
-    margin-left: 4 px;
+    margin-left: 30px;
     margin-top: 20px;
-    color: white;
     width: 600px;
+    text-align: left;
 }
 
 .container {
@@ -16,8 +15,20 @@
 
 }
 
-.img-basic {
+.addvehicle-img {
     height: 70px;
-    width: 570px;
+    width: 580px;
+    margin: auto;
+    margin-top: 7px;
     /* background-image: url("car-wheel-vehicle-auto-business-sports-car-638797-pxhere.com.jpg"); */
+}
+
+.addvehicle-button {
+    margin: auto;
+    width: 120px;
+}
+
+.addvehicle-title {
+    color: white;
+    text-align: center;
 }

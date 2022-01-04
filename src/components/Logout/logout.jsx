@@ -11,11 +11,11 @@ const Logout = () => {
 
     return (
         <Container fluid className='container'>
-            <Card className='special-card'>
+            <Card className='logout-card'>
                 <Card.Body>
-                    <Card.Title className='title'>Are you sure you want to log out?</Card.Title>
-                    <Button className='button' variant='dark' onClick={() => window.location ='/'}>Return Home</Button>
-                    <Button className='button' variant='dark' onClick={() => deleteToken()}>Logout</Button>
+                    <Card.Title className='title-logout'>Are you sure you want to log out?</Card.Title>
+                    <Button className='button-logout' variant='dark' onClick={() => window.location ='/'}>Return Home</Button>
+                    <Button className='button-logout' variant='dark' onClick={() => deleteToken()}>Logout</Button>
                 </Card.Body>
             </Card>
         </Container>

@@ -38,7 +38,8 @@ const VehicleInfo = (props) => {
                                         <Card.Text>Model: {filtered.model} </Card.Text> 
                                         <Card.Text>Trim: {filtered.trim} </Card.Text> 
                                         <Card.Text>Drive Type: {filtered.drive_type} </Card.Text>  
-                                        <Card.Text>VIN: {filtered.vin} </Card.Text>                   
+                                        <Card.Text>VIN: {filtered.vin} </Card.Text> 
+                                        <Card.Text>Miles: {filtered.miles_current} </Card.Text>                   
                                     </Card.Body>
                                 </Card>
                            // </Col> 

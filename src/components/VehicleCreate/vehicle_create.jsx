@@ -10,6 +10,7 @@ const VehicleCreate = () => {
     const [trim, setTrim] = useState ("");
     const [drive_type, setDriveType] = useState ("");
     const [vehicle_type, setVehicleType] = useState ("");
+    const [miles_current, setMilesCurrent] = useState ("");
 
     const newVehicle = {
         vin: vin,
@@ -18,6 +19,7 @@ const VehicleCreate = () => {
         trim: trim,
         drive_type: drive_type,
         vehicle_type: vehicle_type,
+        miles_current: miles_current
     };
 
     let handleSubmit = async (e) => {
@@ -65,6 +67,11 @@ const VehicleCreate = () => {
                     <Form.Group controlId="formBasicVehicleType">                        
                         <Form.Control className='control-space' style={{width:"300px"}} type="text" onChange={(e) => setVehicleType(e.target.value)}></Form.Control>
                         <Form.Label className='label'> Vehicle Type </Form.Label>
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicMilesCurrent">                        
+                        <Form.Control className='control-space' style={{width:"300px"}} type="text" onChange={(e) => setMilesCurrent(e.target.value)}></Form.Control>
+                        <Form.Label className='label'> Current Miles </Form.Label>
                     </Form.Group>
 
                     <Button className='button' variant="dark" type="submit">Submit</Button>

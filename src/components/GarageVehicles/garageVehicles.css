@@ -2,8 +2,7 @@
     background: rgba(129, 129, 129, 0.95);
     margin: auto;
     margin-top: 20px;
-    color: white;
-    width: 800px;
+    width: 600px;
 }
 
 .container {
@@ -15,7 +14,9 @@
 }
 
 .img-basic {
-    height: 100px;
-    width: 798px;
+    height: 70px;
+    width: 580px;
+    margin: auto;
+    margin-top: 7px;
     /* background-image: url("car-wheel-vehicle-auto-business-sports-car-638797-pxhere.com.jpg"); */
 }

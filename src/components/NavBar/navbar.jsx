@@ -12,14 +12,14 @@ const NavBar = ({user}) => {
                     <Nav className="me-auto">
                         {!user && (
                             <>
-                                <Nav.Link href="login/">Login</Nav.Link>
-                                <Nav.Link href="register_user/">Register Account</Nav.Link>
+                                <Nav.Link href="/login/">Login</Nav.Link>
+                                <Nav.Link href="/register_user/">Register Account</Nav.Link>
                             </>
                         )}
                         {user && (
                             <>
                                 <Nav.Link href="/">Home</Nav.Link>                                
-                                <Nav.Link href="logout/">Logout</Nav.Link>                                
+                                <Nav.Link href="/logout/">Logout</Nav.Link>                                
                                 <NavDropdown title="Vehicles" id="collasible-nav-dropdown">
                                     <NavDropdown.Item href="/garage">My Vehicle Garage</NavDropdown.Item>
                                     <NavDropdown.Item href="/vehicle/create">Register Vehicle</NavDropdown.Item>
