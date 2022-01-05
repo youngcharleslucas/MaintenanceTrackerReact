@@ -10,7 +10,7 @@ const RegisterUser = () => {
     const [firstName, setFirstName] = useState ("");
     const [lastName, setLastName] = useState ("");
     const [middleName, setMiddleName] = useState ("");
-    const [role, setRole] = useState ("");
+    // const [role, setRole] = useState ("");
 
     const newUser = {
         username: userName,
@@ -19,7 +19,7 @@ const RegisterUser = () => {
         first_name: firstName,
         last_name: lastName,
         middle_name: middleName,
-        role: role,
+        // role: role,
     };
    
     let handleSubmit = async (e) => {
@@ -36,6 +36,41 @@ const RegisterUser = () => {
         <Container fluid className='container'>
             <>
                 <Form onSubmit={(e) => handleSubmit(e)}>
+
+                    <Form.Group controlId="formBasicFirst">                        
+                        <Form.Control className='space' 
+                            style={{width:'300px'}} 
+                            name="firstName" 
+                            // value="firstName" 
+                            type="text"
+                            onChange={(e) => setFirstName(e.target.value)}>                            
+                        </Form.Control>
+                        <Form.Label className='label'>First Name</Form.Label>
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicLast">                        
+                        <Form.Control className='space' 
+                            style={{width:'300px'}} 
+                            name="lastName" 
+                            // value={lastName} 
+                            type="text" 
+                            onChange={(e) => setLastName(e.target.value)}>                            
+                        </Form.Control>
+                        <Form.Label className='label'>Last Name</Form.Label>
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicMiddle">                        
+                        <Form.Control className='space' 
+                            style={{width:'300px'}} 
+                            name="middleName" 
+                            // value="{middleName}" 
+                            type="text" 
+                            placeholder='Optional'
+                            onChange={(e) => setMiddleName(e.target.value)}>                            
+                        </Form.Control>
+                        <Form.Label className='label' >Middle Name</Form.Label>
+                    </Form.Group>
+
                     <Form.Group controlId="formBasicUserName">                        
                         <Form.Control className='space' style={{width:'300px'}} 
                             name="userName" 
@@ -66,40 +101,7 @@ const RegisterUser = () => {
                         <Form.Label className='label'>Email</Form.Label>
                     </Form.Group>
 
-                    <Form.Group controlId="formBasicFirst">                        
-                        <Form.Control className='space' 
-                            style={{width:'300px'}} 
-                            name="firstName" 
-                            // value="firstName" 
-                            type="text"
-                            onChange={(e) => setFirstName(e.target.value)}>                            
-                        </Form.Control>
-                        <Form.Label className='label'>First Name</Form.Label>
-                    </Form.Group>
-
-                    <Form.Group controlId="formBasicLast">                        
-                        <Form.Control className='space' 
-                            style={{width:'300px'}} 
-                            name="lastName" 
-                            // value={lastName} 
-                            type="text" 
-                            onChange={(e) => setLastName(e.target.value)}>                            
-                        </Form.Control>
-                        <Form.Label className='label'>Last Name</Form.Label>
-                    </Form.Group>
-
-                    <Form.Group controlId="formBasicMiddle">                        
-                        <Form.Control className='space' 
-                            style={{width:'300px'}} 
-                            name="middleName" 
-                            // value="{middleName}" 
-                            type="text" 
-                            onChange={(e) => setMiddleName(e.target.value)}>                            
-                        </Form.Control>
-                        <Form.Label className='label'>Middle Name</Form.Label>
-                    </Form.Group>
-
-                    <Form.Group controlId="formBasicRole">                        
+                    {/* <Form.Group controlId="formBasicRole">                        
                         <Form.Control className='space' 
                             style={{width:'300px'}} 
                             name="role" 
@@ -108,7 +110,7 @@ const RegisterUser = () => {
                             onChange={(e) => setRole(e.target.value)}>                            
                         </Form.Control>
                         <Form.Label className='label'>Role</Form.Label>
-                    </Form.Group>
+                    </Form.Group> */}
 
                     <Button className='button' variant="dark" type="submit">Submit</Button>
                 </Form>

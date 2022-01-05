@@ -60,12 +60,29 @@ const VehicleCreate = () => {
                     </Form.Group>
 
                     <Form.Group controlId="formBasicDriveType">                        
-                        <Form.Control className='control-space' style={{width:"300px"}} type="text" onChange={(e) => setDriveType(e.target.value)}></Form.Control>
+                        <Form.Select className='control-space' 
+                            style={{width:"300px"}} 
+                            as="select"
+                            value={drive_type} 
+                            onChange={(e) => setDriveType(e.target.value)}>
+                                <option value="FWD">FWD</option>
+                                <option value="AWD">AWD</option>
+                                <option value="RWD">RWD</option>
+                                <option value="4x4">4x4</option>
+                        </Form.Select>
                         <Form.Label className='label'> Drive Type </Form.Label>
                     </Form.Group>
 
+                    {/* Form with dropdown option */}
                     <Form.Group controlId="formBasicVehicleType">                        
-                        <Form.Control className='control-space' style={{width:"300px"}} type="text" onChange={(e) => setVehicleType(e.target.value)}></Form.Control>
+                        <Form.Select className='control-space' 
+                            style={{width:"300px"}}
+                            as="select"
+                            value={vehicle_type}
+                            onChange={(e) => setVehicleType(e.target.value)}>
+                                <option value="1">Car</option>
+                                <option value="2">Motorcycle</option>
+                        </Form.Select>
                         <Form.Label className='label'> Vehicle Type </Form.Label>
                     </Form.Group>
 
