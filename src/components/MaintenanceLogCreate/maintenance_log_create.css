@@ -1,23 +1,23 @@
-.control-space {
+.create-log-control {
     margin-left: 60px;
     margin-top: 20px;
     width: 300px;
 }
 
-.create-vehicle-container {
-    /* margin-top: 30px; */
+.create-log-container {
     margin: auto;
+    width: 80vw;
     padding-top: 20px;
     background:  rgba(45, 46, 48, 0.95);
 
 }
 
-.label {
+.create-log-label {
     color: white;
     padding-left: 60px;
 }
 
-.button {
+.create-log-button {
     margin-left: 60px;
     margin-top: 10px;
 }

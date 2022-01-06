@@ -35,12 +35,17 @@ const VehicleCreate = () => {
 
 
     return (
-        <Container fluid className='container'>
+        <Container fluid className='create-vehicle-container'>
             <>
                 <Form onSubmit={(e) => handleSubmit(e)}>
 
                     <Form.Group controlId="formBasicVIN">                        
-                        <Form.Control className='control-space' style={{width:"300px"}} type="text" onChange={(e) => setVIN(e.target.value)}></Form.Control>
+                        <Form.Control 
+                            className='control-space' 
+                            style={{width:"300px"}} 
+                            type="text" 
+                            onChange={(e) => setVIN(e.target.value)}>
+                        </Form.Control>
                         <Form.Label className='label'> VIN </Form.Label>
                     </Form.Group>
 

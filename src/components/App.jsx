@@ -11,6 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap.css";
 import MaintenanceLog from './MaintenanceLog/maintenance_log';
 import MaintenanceLogList from './MaintenanceLogList/maintenance_log_list';
+import MaintenanceLogCreate from './MaintenanceLogCreate/maintenance_log_create';
 import RegisterUser from './RegisterUser/register_user';
 import VehicleCreate from './VehicleCreate/vehicle_create';
 import NavBar from './NavBar/navbar';
@@ -57,6 +58,7 @@ class App extends Component {
                         <Route path="/maintenance_item/:maintenance_id" element={<MaintenanceItem  />} />
                         <Route path="/vehicle_information/:vehicle_id" element={<VehicleInfo  />} />
                         <Route path="/maintenance_log_list/:vehicle_id" element={<MaintenanceLogList  />} />
+                        <Route path="/maintenance_log_list/create_log/:vehicle_id" element={<MaintenanceLogCreate  />} />
                         <Route path="/maintenance_log/:log_id" element={<MaintenanceLog  />} />
                         <Route path="/vehicle/create" element={<VehicleCreate />} />
                         <Route path="/garage" element={<GarageVehicles user={user}/>} /> 

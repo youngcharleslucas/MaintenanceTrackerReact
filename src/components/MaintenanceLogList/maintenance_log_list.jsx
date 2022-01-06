@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Card, CardGroup, Row, Col } from 'react-bootstrap';
+import { Container, Card, CardGroup, Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
 import "./maintenance_log_list.css"
@@ -8,26 +8,12 @@ const MaintenanceLogList = (props) => {
     const [log_list, setMaintenanceLogList] = useState([]);
 
     const {vehicle_id} = useParams();
-    // const {vehicle_type} = useParams();
 
     useEffect(() => {
         getMaintenanceLogList()
     }, [])
 
 
-    // const vehicleLogs = {
-    //     // *1 converts string to integer
-    //     id : vehicle_id * 1
-    // };
-    // const getMaintenanceLogList = async () => {
-// THIS WILL NOT WORK!!!! CANNOT PASS A BODY THROUGH A GET REQUEST!!!!!!!!!!!!!
-    //     const jwt = localStorage.getItem('token')
-    //     let response = await axios.get('http://127.0.0.1:8000/api/maintenance_log/vehicle/', vehicleLogs, {headers: {Authorization: 'Bearer ' + jwt}})
-    //     console.log(response.data)
-    //     setMaintenanceLogList(response.data)
-    // }
-// AllowAny test because getting 401 error above. Postman works with IsAuth
-// It is now giving 500 error, but postman still works
 // Aparently GET requests in Postman can include a body. THAT WILL NOT WORK FOR AXIOS!!!!
 
     const getMaintenanceLogList = async () => {
@@ -42,7 +28,10 @@ const MaintenanceLogList = (props) => {
         <Container fluid className="container">   
             <>
                 {/* <h1 color="white" >Maintenance Log List</h1> */}
-                {/* <h2>{vehicle_id}</h2> */}
+                {/*  */}
+                {/* <Button.Link onClick={() => window.location = `/maintenance_log_list/create_log/${vehicle_id}`} >Create Log</Button.Link> */}
+                {/* <Button.Link href = {`/maintenance_log_list/create_log/${vehicle_id}`} >Create Log</Button.Link> */}
+                <Card.Link href ={`/maintenance_log_list/create_log/${vehicle_id}`}>Return Home</Card.Link>
                 <CardGroup>
                     <Row xs={1} md={1} className="g-4">
                         {log_list.map((e) => 
