@@ -36,7 +36,7 @@ const AlertsPage = (props) => {
                 <h2>{vehicle_id}</h2>                 */}
                     <h1 className='alert-title'>Overdue</h1>  
                     <hr className='alert-title'/>                 
-                        {alert_list.filter((filtered) => filtered.vehicle.miles_current > (filtered.log_miles + filtered.maintenance.maintenance_miles)).map((e) =>
+                        {alert_list.filter((filtered) => filtered.vehicle.miles_current >= (filtered.log_miles + filtered.maintenance.maintenance_miles)).map((e) =>
                             <Row>
                                 <Alert variant="danger" className='alert'>
                                     <Alert.Heading>{e.maintenance.maintenance_name}</Alert.Heading>
