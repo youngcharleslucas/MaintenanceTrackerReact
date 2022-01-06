@@ -22,11 +22,6 @@ const AddVehicle = (props) => {
         setVehicles(response.data)
     };
 
-    // const new_relation = {
-    //     operator: user_id,
-    //     vehicle: added_vehicle
-    // };
-
     const handleSubmit = async (event, added_vehicle) => {
         event.preventDefault();
         const new_relation = {

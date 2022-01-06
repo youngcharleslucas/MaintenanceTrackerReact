@@ -14,15 +14,7 @@ const GarageVehicles = (props) => {
         getVehicles()
     }, [])
 
-    // Working version prior to request for alerts, get vehicles for garage
-    // const getVehicles = async () => {
-    //     const jwt = localStorage.getItem('token')
-    //     let response = await axios.get('http://127.0.0.1:8000/api/operator_vehicle/garage/', {headers: {Authorization: 'Bearer ' + jwt}})
-    //     console.log(response.data)
-    //     setVehicles(response.data)
-    // };
-
-    // Adding get all maintenance logs to get vehicles for garage
+    // Get operator's vehicles through id, adding get all maintenance logs to get vehicles w/ incomplete maintenance log for garage
     const getVehicles = async () => {
         const jwt = localStorage.getItem('token')
         let response_vehicles = await axios.get('http://127.0.0.1:8000/api/operator_vehicle/garage/', {headers: {Authorization: 'Bearer ' + jwt}})
