@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Card, Row, Col, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Container, Card, Row, Col, DropdownButton, Dropdown, Stack } from 'react-bootstrap';
 import axios from 'axios';
 import './garageVehicles.css'
 // import Maintenance from '../Maintenance/maintenance';
@@ -52,16 +52,20 @@ const GarageVehicles = (props) => {
                             <Card.Img className="garage-img" variant="top" src="https://i.imgur.com/kdTpGzr.jpg" />
                             <Card.Body>
                                 <Card.Title className='garage-title'>{e.make} {e.model}</Card.Title>
-                                <Card.Text>{overdue.filter((filtered) => 
-                                        filtered.vehicle.id == e.id).length}</Card.Text>
-                                    <DropdownButton id="dropdown-basic-button" title="Options" variant="dark">
-                                        <Dropdown.Item href={`/vehicle_information/${e.id}`}>Vehicle Information</Dropdown.Item>
-                                        <Dropdown.Item href={`/update_miles/${e.id}`}>Update Miles</Dropdown.Item>
-                                        <Dropdown.Item href={`/maintenance_log_list/${e.id}`}>Logs</Dropdown.Item>
-                                        <Dropdown.Item href="/">Parts</Dropdown.Item>
-                                        <Dropdown.Item href={`/maintenance/${e.vehicle_type}`} >Maintenance</Dropdown.Item>
-                                        <Dropdown.Item href={`/alerts_list/${e.id}`}>Alerts</Dropdown.Item>
-                                </DropdownButton>
+                                    <Stack direction="horizontal" gap={3}>
+                                            <DropdownButton id="dropdown-basic-button" title="Options" variant="dark">
+                                                <Dropdown.Item href={`/vehicle_information/${e.id}`}>Vehicle Information</Dropdown.Item>
+                                                <Dropdown.Item href={`/update_miles/${e.id}`}>Update Miles</Dropdown.Item>
+                                                <Dropdown.Item href={`/maintenance_log_list/${e.id}`}>Logs</Dropdown.Item>
+                                                <Dropdown.Item href="/">Parts</Dropdown.Item>
+                                                <Dropdown.Item href={`/maintenance/${e.vehicle_type}`} >Maintenance</Dropdown.Item>
+                                                <Dropdown.Item href={`/alerts_list/${e.id}`}>Alerts</Dropdown.Item>
+                                            </DropdownButton>
+                                        <Stack direction="vertical" gap={0}>
+                                            <Card.Text className='garage-danger' >Overdue: {overdue.filter((filtered) => filtered.vehicle.id == e.id).length}</Card.Text>
+                                            <Card.Text className='garage-warning'>Approaching: {upcoming.filter((filtered) => filtered.vehicle.id == e.id).length}</Card.Text>
+                                        </Stack>
+                                    </Stack>
                             </Card.Body>
                         </Card>
                      )} 
