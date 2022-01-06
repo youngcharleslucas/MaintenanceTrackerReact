@@ -3,22 +3,17 @@ import {Nav, NavDropdown, Container, Navbar, Offcanvas} from 'react-bootstrap'
 import axios from 'axios'
 
 const NavBar = ({user}) => {
-    // const [vehicles, setVehicles] = useState([]);
     const [overdue, setOverdue] = useState([]);
     const [upcoming, setUpcoming] = useState([]);
 
     useEffect(() => {
         getAlerts()
-    }, [])
+    }, [user])
 
     // Get operator's vehicles through id, adding get all maintenance logs to get vehicles w/ incomplete maintenance log for garage
     const getAlerts = async () => {
         const jwt = localStorage.getItem('token')
-        // let response_vehicles = await axios.get('http://127.0.0.1:8000/api/operator_vehicle/garage/', {headers: {Authorization: 'Bearer ' + jwt}})
         let response_logs = await axios.get('http://127.0.0.1:8000/api/maintenance_log/all/incomplete/', {headers: {Authorization: 'Bearer ' + jwt}})
-        // console.log(response_vehicles.data)
-        // console.log(response_logs.data)
-        // setVehicles(response_vehicles.data)
         let logs = response_logs.data
         let overdue_all = logs.filter((e) => e.vehicle.miles_current >= (e.log_miles + e.maintenance.maintenance_miles))
         let user_overdue_logs = overdue_all.filter((e) => e.operator.id == user.user_id)

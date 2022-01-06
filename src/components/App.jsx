@@ -20,6 +20,7 @@ import Logout from './Logout/logout';
 import AddVehicle from './GarageAddVehicle/garage_add_vehicle';
 import UpdateMiles from './Miles/miles';
 import AlertsPage from './Alerts/alerts';
+import AlertComplete from './AlertComplete/alert_complete'
 
 
 class App extends Component {
@@ -64,7 +65,8 @@ class App extends Component {
                         <Route path="/garage" element={<GarageVehicles user={user}/>} /> 
                         <Route path="/garage/add_vehicle/:user_id" element={<AddVehicle user={user}/>} /> 
                         <Route path="/update_miles/:vehicle_id" element={<UpdateMiles  />} />   
-                        <Route path="/alerts_list/:vehicle_id" element={<AlertsPage />} />                     
+                        <Route path="/alerts_list/:vehicle_id" element={<AlertsPage />} /> 
+                        <Route path="/alerts_complete/:log_id" element={<AlertComplete user={user}/>} />                    
                     </Routes>
                 </Router>
             </div>
