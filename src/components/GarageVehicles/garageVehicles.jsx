@@ -41,8 +41,9 @@ const GarageVehicles = (props) => {
         <Container fluid className="garage-container">
             <>
               <Row >
-                  {console.log(overdue)}
-                  {console.log(upcoming)}
+                  {console.log(overdue.length)}
+                  {console.log(vehicles)}
+                  {/* {console.log(upcoming)} */}
             {/* Array did not work. It created duplicates of the mapped objects */}
               {/* {Array.from({ length: 2 }).map((_, idx) => ( */}
                   {/* <Col> */}
@@ -50,14 +51,16 @@ const GarageVehicles = (props) => {
                         <Card className="garage-card">
                             <Card.Img className="garage-img" variant="top" src="https://i.imgur.com/kdTpGzr.jpg" />
                             <Card.Body>
-                                <Card.Title>{e.make} {e.model}</Card.Title>
+                                <Card.Title className='garage-title'>{e.make} {e.model}</Card.Title>
+                                <Card.Text>{overdue.filter((filtered) => 
+                                        filtered.vehicle.id == e.id).length}</Card.Text>
                                     <DropdownButton id="dropdown-basic-button" title="Options" variant="dark">
-                                    <Dropdown.Item href={`/vehicle_information/${e.id}`}>Vehicle Information</Dropdown.Item>
-                                    <Dropdown.Item href={`/update_miles/${e.id}`}>Update Miles</Dropdown.Item>
-                                    <Dropdown.Item href={`/maintenance_log_list/${e.id}`}>Logs</Dropdown.Item>
-                                    <Dropdown.Item href="/">Parts</Dropdown.Item>
-                                    <Dropdown.Item href={`/maintenance/${e.vehicle_type}`} >Maintenance</Dropdown.Item>
-                                    <Dropdown.Item href={`/alerts_list/${e.id}`}>Alerts</Dropdown.Item>
+                                        <Dropdown.Item href={`/vehicle_information/${e.id}`}>Vehicle Information</Dropdown.Item>
+                                        <Dropdown.Item href={`/update_miles/${e.id}`}>Update Miles</Dropdown.Item>
+                                        <Dropdown.Item href={`/maintenance_log_list/${e.id}`}>Logs</Dropdown.Item>
+                                        <Dropdown.Item href="/">Parts</Dropdown.Item>
+                                        <Dropdown.Item href={`/maintenance/${e.vehicle_type}`} >Maintenance</Dropdown.Item>
+                                        <Dropdown.Item href={`/alerts_list/${e.id}`}>Alerts</Dropdown.Item>
                                 </DropdownButton>
                             </Card.Body>
                         </Card>
