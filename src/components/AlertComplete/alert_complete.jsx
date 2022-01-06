@@ -53,7 +53,7 @@ const AlertComplete = ({user}) => {
         console.log(response_complete_old_log)
         if (response.request.status === 201) {
             alert('New log created');
-            // return (window.location = '')
+            return (window.location = `/alerts_list/${vehicle_id}/`)
         }
     };
 

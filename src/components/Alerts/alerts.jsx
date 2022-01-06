@@ -20,12 +20,21 @@ const AlertsPage = (props) => {
         setAlertList(response.data)
     };
 
+    // Marks the log/alert complete without reating a new log
+    // let handleSubmit = async (event, id) => {
+    //     event.preventDefault();
+    //     const jwt = localStorage.getItem('token')
+    //     let response = await axios.get(`http://127.0.0.1:8000/api/maintenance_log/vehicle/maintenance_item_log/complete/${id}/`, {headers: {Authorization: 'Bearer ' + jwt}})
+    //     console.log(response.data)
+    //     setLogId(id)
+    // };
+
+    // Direct to create log that also marks previous log complete
     let handleSubmit = async (event, id) => {
         event.preventDefault();
-        const jwt = localStorage.getItem('token')
-        let response = await axios.get(`http://127.0.0.1:8000/api/maintenance_log/vehicle/maintenance_item_log/complete/${id}/`, {headers: {Authorization: 'Bearer ' + jwt}})
-        console.log(response.data)
         setLogId(id)
+        window.location = `/alerts_complete/${id}`
+        
     };
 
 

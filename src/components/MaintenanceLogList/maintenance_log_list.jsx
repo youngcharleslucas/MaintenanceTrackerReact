@@ -26,13 +26,9 @@ const MaintenanceLogList = (props) => {
 
     return (
         <Container fluid className="container">   
-            <>
-                {/* <h1 color="white" >Maintenance Log List</h1> */}
-                {/*  */}
-                {/* <Button.Link onClick={() => window.location = `/maintenance_log_list/create_log/${vehicle_id}`} >Create Log</Button.Link> */}
-                {/* <Button.Link href = {`/maintenance_log_list/create_log/${vehicle_id}`} >Create Log</Button.Link> */}
-                <Card.Link href ={`/maintenance_log_list/create_log/${vehicle_id}`}>Return Home</Card.Link>
-                <CardGroup>
+            <>              
+                <CardGroup>                
+                    <Button className='' variant='dark' onClick={() => window.location =`/maintenance_log_list/create_log/${vehicle_id}/`}>Create Log</Button>
                     <Row xs={1} md={1} className="g-4">
                         {log_list.map((e) => 
                             <Col>

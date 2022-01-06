@@ -57,9 +57,9 @@ const NavBar = ({user}) => {
                     </Nav>  
                     {user && (
                         <>
-                            <Nav>
-                                <Navbar.Brand className='alert-navbar'>Overdue: {overdue.length}</Navbar.Brand>
-                                <Navbar.Brand>Approaching: {upcoming.length}</Navbar.Brand>
+                            <Nav className='danger-navbar' variant='danger' bg='light'>
+                                <Navbar.Brand className='danger-navbar'>Overdue: {overdue.length}</Navbar.Brand>
+                                <Navbar.Brand className='warning-navbar'>Approaching: {upcoming.length}</Navbar.Brand>
                             </Nav>                        
                         </>                        
                     )}
