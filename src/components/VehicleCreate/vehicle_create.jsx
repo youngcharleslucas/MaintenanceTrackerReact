@@ -43,24 +43,37 @@ const VehicleCreate = () => {
                         <Form.Control 
                             className='control-space' 
                             style={{width:"300px"}} 
-                            type="text" 
+                            type="text"
+                            macklength="17" 
                             onChange={(e) => setVIN(e.target.value)}>
                         </Form.Control>
                         <Form.Label className='label'> VIN </Form.Label>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicMake">
-                        <Form.Control className='control-space' style={{width:"300px"}} type="text" onChange={(e) => setMake(e.target.value)}></Form.Control>
+                        <Form.Control className='control-space' 
+                            style={{width:"300px"}} 
+                            type="text" 
+                            onChange={(e) => setMake(e.target.value)}>                            
+                        </Form.Control>
                         <Form.Label className='label'> Make </Form.Label>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicModel">                        
-                        <Form.Control className='control-space' style={{width:"300px"}} type="text" onChange={(e) => setModel(e.target.value)}></Form.Control>
+                        <Form.Control className='control-space' 
+                            style={{width:"300px"}} 
+                            type="text" 
+                            onChange={(e) => setModel(e.target.value)}>                            
+                        </Form.Control>
                         <Form.Label className='label'> Model </Form.Label>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicTrim">                        
-                        <Form.Control className='control-space' style={{width:"300px"}} type="text" onChange={(e) => setTrim(e.target.value)}></Form.Control>
+                        <Form.Control className='control-space' 
+                            style={{width:"300px"}} 
+                            type="text" 
+                            onChange={(e) => setTrim(e.target.value)}>                            
+                        </Form.Control>
                         <Form.Label className='label'> Trim </Form.Label>
                     </Form.Group>
 
@@ -68,8 +81,9 @@ const VehicleCreate = () => {
                         <Form.Select className='control-space' 
                             style={{width:"300px"}} 
                             as="select"
-                            value={drive_type} 
+                            // value={drive_type} 
                             onChange={(e) => setDriveType(e.target.value)}>
+                                <option value=""></option>
                                 <option value="FWD">FWD</option>
                                 <option value="AWD">AWD</option>
                                 <option value="RWD">RWD</option>
@@ -83,8 +97,9 @@ const VehicleCreate = () => {
                         <Form.Select className='control-space' 
                             style={{width:"300px"}}
                             as="select"
-                            value={vehicle_type}
-                            onChange={(e) => setVehicleType(e.target.value)}>
+                            // value={vehicle_type}
+                            onChange={(e) => setVehicleType(e.target.value*1)}>
+                                <option value=""></option>
                                 <option value="1">Car</option>
                                 <option value="2">Motorcycle</option>
                         </Form.Select>
@@ -92,7 +107,11 @@ const VehicleCreate = () => {
                     </Form.Group>
 
                     <Form.Group controlId="formBasicMilesCurrent">                        
-                        <Form.Control className='control-space' style={{width:"300px"}} type="text" onChange={(e) => setMilesCurrent(e.target.value)}></Form.Control>
+                        <Form.Control className='control-space' 
+                            style={{width:"300px"}} 
+                            type="text" 
+                            onChange={(e) => setMilesCurrent(e.target.value)}>                            
+                        </Form.Control>
                         <Form.Label className='label'> Current Miles </Form.Label>
                     </Form.Group>
 

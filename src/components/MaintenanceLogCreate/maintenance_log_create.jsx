@@ -11,7 +11,7 @@ const MaintenanceLogCreate = ({user}) => {
     const [log_date, setLogDate] = useState ("");
     const [log_miles, setLogMiles] = useState ("");
     const [log_note, setLogNote] = useState ("");
-    const complete = false;
+    const complete = true;
 
     const {vehicle_id} = useParams()
 
