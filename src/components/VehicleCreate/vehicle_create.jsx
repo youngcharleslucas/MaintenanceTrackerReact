@@ -44,7 +44,7 @@ const VehicleCreate = () => {
                             className='control-space' 
                             style={{width:"300px"}} 
                             type="text"
-                            macklength="17" 
+                            maxlength="17" 
                             onChange={(e) => setVIN(e.target.value)}>
                         </Form.Control>
                         <Form.Label className='label'> VIN </Form.Label>

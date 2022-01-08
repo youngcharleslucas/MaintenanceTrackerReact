@@ -49,7 +49,7 @@ const GarageVehicles = (props) => {
                                                 <Dropdown.Item href={`/vehicle_information/${e.id}`}>Vehicle Information</Dropdown.Item>
                                                 <Dropdown.Item href={`/update_miles/${e.id}`}>Update Miles</Dropdown.Item>
                                                 <Dropdown.Item href={`/maintenance_log_list/${e.id}`}>Logs</Dropdown.Item>
-                                                <Dropdown.Item href="/">Parts</Dropdown.Item>
+                                                {/* <Dropdown.Item href="/">Parts</Dropdown.Item> */}
                                                 <Dropdown.Item href={`/maintenance/${e.vehicle_type}`} >Maintenance</Dropdown.Item>
                                                 <Dropdown.Item href={`/alerts_list/${e.id}`}>Alerts</Dropdown.Item>
                                             </DropdownButton>

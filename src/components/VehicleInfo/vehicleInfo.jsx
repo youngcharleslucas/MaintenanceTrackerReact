@@ -7,7 +7,6 @@ import './vehicleInfo.css'
 const VehicleInfo = (props) => {
     const [vehicle_info, setVehicleInfo] = useState([]);
 
-
     const {vehicle_id} = useParams();
 
     useEffect(() => {

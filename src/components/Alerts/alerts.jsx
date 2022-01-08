@@ -7,20 +7,25 @@ import './alerts.css'
 const AlertsPage = (props) => {
     const [alert_list, setAlertList] = useState([]);
     const [log_id, setLogId] = useState("");
+    const [miles_logged, setMilesLogged] = useState([]);
     const {vehicle_id} = useParams();
+    
 
     useEffect(() => {
         getAlertsList()
-    }, [log_id])
+    }, [miles_logged])
 
     const getAlertsList = async () => {
         const jwt = localStorage.getItem('token')
         let response = await axios.get(`http://127.0.0.1:8000/api/maintenance_log/vehicle/maintenance_item_log/incomplete/${vehicle_id}/`, {headers: {Authorization: 'Bearer '+ jwt}})
+        let response_vehicle = await axios.get(`http://127.0.0.1:8000/api/vehicle/get_vehicle/${vehicle_id}/`, {headers: {Authorization: 'Bearer ' + jwt}})
+        console.log(typeof response_vehicle.data[0].miles_current)
         console.log (response.data)
         setAlertList(response.data)
+        setMilesLogged(response_vehicle.data[0].miles_current)
     };
 
-    // Marks the log/alert complete without reating a new log
+    // Marks the log/alert complete without creating a new log
     // let handleSubmit = async (event, id) => {
     //     event.preventDefault();
     //     const jwt = localStorage.getItem('token')
@@ -29,7 +34,7 @@ const AlertsPage = (props) => {
     //     setLogId(id)
     // };
 
-    // Direct to create log that also marks previous log complete
+    // Direct to create log 
     let handleSubmit = async (event, id) => {
         event.preventDefault();
         setLogId(id)
@@ -42,7 +47,9 @@ const AlertsPage = (props) => {
         <Container fluid className="alert-container">
             <>
             {/* <h1>Alerts</h1>
-                <h2>{vehicle_id}</h2>                 */}
+                <h2>{vehicle_id}</h2> */} 
+                {console.log(miles_logged)}                
+                <h2 className='alert-title'>Current Miles: {miles_logged}</h2>
                     <h1 className='alert-title'>Overdue</h1>  
                     <hr className='alert-title'/>                 
                         {alert_list.filter((filtered) => filtered.vehicle.miles_current >= (filtered.log_miles + filtered.maintenance.maintenance_miles)).map((e) =>
