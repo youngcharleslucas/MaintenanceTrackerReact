@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Card, CardGroup, Button, Row } from 'react-bootstrap';
+import { Container, Card, CardGroup, Button, Row, Stack } from 'react-bootstrap';
 import axios from 'axios';
 import './garage_add_vehicle.css'
 import { useParams } from 'react-router-dom';
@@ -39,7 +39,7 @@ const AddVehicle = (props) => {
     }
 
     return (
-        <Container fluid className='container'>
+        <Container fluid className='addvehicle-container'>
             <>
                 <CardGroup>
                     <Row xs={1} md={1} >
@@ -47,8 +47,10 @@ const AddVehicle = (props) => {
                         {vehicles.map((e) =>
                             <Card className='addvehicle-card'>
                                 <Card.Img className="addvehicle-img" variant="top" src="https://i.imgur.com/kdTpGzr.jpg" />
-                                <Card.Title className='addvehicle-title'>{e.make} {e.model}</Card.Title>
-                                <Button className="addvehicle-button" variant="dark" onClick={(event) => handleSubmit(event, e.id)}>Add</Button>
+                                <Stack direction="horizontal" gap={3}>
+                                    <Card.Title className='addvehicle-title'>{e.make} {e.model}</Card.Title>
+                                    <Button className="addvehicle-button" variant="dark" onClick={(event) => handleSubmit(event, e.id)}>Add</Button>
+                                </Stack>
                             </Card>
                         )}
                     </Row>

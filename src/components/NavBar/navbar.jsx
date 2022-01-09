@@ -33,7 +33,7 @@ const NavBar = ({user}) => {
             {console.log(upcoming)}
             <Container fluid>
                 {console.log(user)}
-                <Navbar.Brand href="#">Maintenance Tracker</Navbar.Brand>
+                <Navbar.Brand href="/">Maintenance Tracker</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-navr" aria-labelledby="offcanvasNavbarLabel" placement="start">                    
                     <Nav className="me-auto">

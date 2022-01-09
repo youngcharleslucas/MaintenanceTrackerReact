@@ -51,7 +51,7 @@ const MaintenanceLogCreate = ({user}) => {
         console.log(response.data)
         if (response.request.status === 201) {
             alert('New log created');
-            // return (window.location = '')
+            return (window.location = `/maintenance_log_list/${vehicle_id}/`)
         }
     };
 
@@ -68,6 +68,7 @@ const MaintenanceLogCreate = ({user}) => {
                             as="select"
                             value={maintenance}
                             onChange={(e) => setMaintenance(e.target.value)}>
+                                <option value=""></option>
                                 {maintenance_items.map((e) =>
                                 <option value={e.id}>{e.maintenance_name}</option>
                                 )}

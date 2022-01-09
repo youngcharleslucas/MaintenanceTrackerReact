@@ -1,7 +1,7 @@
 .garage-card {
     background: rgba(129, 129, 129, 0.95);
     margin: auto;
-    margin-left: 10px;
+    margin-left: 5vw;
     margin-top: 20px;
     width: 600px;
     text-align: left;
@@ -23,13 +23,13 @@
 
 .garage-danger {
     color: rgb(211, 42, 42);
-    background:  rgba(45, 46, 48, 0.95);
+    background:  rgba(53, 53, 53, 0.95);
     
 }
 
 .garage-warning {
     color: rgb(236, 174, 3);
-    background:  rgba(45, 46, 48, 0.95);
+    background:  rgba(53, 53, 53, 0.95);
     
 }
 
