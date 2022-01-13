@@ -234,4 +234,4 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/charles-lucas-young/
-[homepage-screenshot]: https://raw.githubusercontent.com/youngcharleslucas/MaintenanceTrackerReact/main/public/images/homepage_screenshot.JPG
+[homepage-screenshot]:https://raw.githubusercontent.com/youngcharleslucas/MaintenanceTrackerReact/main/public/images/homepage_screenshot.JPG
