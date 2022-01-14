@@ -15,21 +15,13 @@
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <h1>Table of Contents</h1>
-<!--   <summary>Table of Contents</summary> -->
+  <summary>Table of Contents</summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
         <li><a href="#user-story">User Story</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
     <li><a href="#contact">Contact</a></li>
@@ -39,20 +31,19 @@
 
 
 <!-- ABOUT THE PROJECT -->
-<!-- ### About The Project
+### About The Project
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+MaintenanceTracker is an application built to remind drivers of upcoming maintenance and to maintain maintenance logs. 
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+Features include:
+* Register an account
+* Register a vehicle
+* Add a vehicle to a garage
+* Predefined maintenance items for a vehicle based off of vehicle type
+* Maintenance logs created by the operator
+* Alerts for overdue, upcoming, and scheduled maintenance
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
-
-<p align="right">(<a href="#top">back to top</a>)</p> -->
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 #### Built With
 
@@ -71,7 +62,7 @@ Use the `BLANK_README.md` to get started.
 <!-- USER STORY -->
   
 ### User Story
-
+<p>For this project I created my own user story. These are the objectives I set for myself.</p>
 <ul>
 <li>As a vehicle operator, I want to be able to register and log in & out of my application.</li>
 <li>As a vehicle operator, I want to be able to add a vehicle to my collection.</li>
@@ -84,6 +75,7 @@ Use the `BLANK_README.md` to get started.
 <li>As a developer, I want to have an aesthetically pleasing and intuitive user interface/user experience (UI/UX) with all features of the application stylized. (CSS, Bootstrap, Material UI, etc.)</li>
 </ul>
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTACT -->
 ### Contact
